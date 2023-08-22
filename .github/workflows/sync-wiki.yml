@@ -20,7 +20,7 @@ jobs:
         run: |
           git config --global user.email "wikibot@yourdomain.com"
           git config --global user.name "Wiki Template Bot"
-          git remote add upstream https://github.com/mhatzl/project-repo-template.wiki.git
+          git remote add upstream https://github.com/mhatzl/mantra.wiki.git
           git fetch upstream
           git merge --allow-unrelated-histories --strategy-option=ours upstream/master
           git push --force upstream main:master

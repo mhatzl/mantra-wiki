@@ -1,4 +1,4 @@
-Development-Wiki for the [project-repo-template](https://github.com/mhatzl/project-repo-template).
+Development-Wiki for [mantra](https://github.com/mhatzl/mantra).
 
 ### Table of Content
 

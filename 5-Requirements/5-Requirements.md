@@ -66,7 +66,7 @@ A requirement goes through the following phases:
 
 4. **active** ... When the implementation of a requirement is merged, the requirement gets **active**
 
-   The number of times the requirement is referenced in the *project* repository should be added to the wiki.
+   The number of times the requirement is referenced in [mantra](https://github.com/mhatzl/mantra) should be added to the wiki.
    Tools may be used to achieve this.
 
    **Example:**
