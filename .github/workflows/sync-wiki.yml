@@ -1,0 +1,26 @@
+# Synchronize this repository with the project wiki 
+# name: "Sync Wiki"
+on: workflow_dispatch
+#   push:
+#     branches:
+#       - main
+
+jobs:
+  sync-wikis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Add wiki repo and push changes
+
+        # TODO: try to fix "remote: fatal: did not receive expected object 16a4c..." error
+
+        # Note: `master` is the default branch for GitHub wikis
+        run: |
+          git config --global user.email "wikibot@yourdomain.com"
+          git config --global user.name "Wiki Template Bot"
+          git remote add upstream https://github.com/mhatzl/project-repo-template.wiki.git
+          git fetch upstream
+          git merge --allow-unrelated-histories --strategy-option=ours upstream/master
+          git push --force upstream main:master
