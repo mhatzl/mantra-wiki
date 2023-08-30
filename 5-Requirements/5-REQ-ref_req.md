@@ -14,3 +14,7 @@ Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
 This syntax was chosen, because it should be independent enough in most programming languages that regex can be used to search for references, while still being able to distinguish an expression from a requirement reference.
 
 Using regex simplifies the implementation effort, because textual files may be searched without the need to first analyze the semantics of a programming language.
+
+## ref_req.test: Test requirement referencing
+
+Add a test to make sure that references are found in some content.
