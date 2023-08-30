@@ -1,5 +1,9 @@
 # sync: Synchronize wiki, implementation, and tests
 
+**References:**
+
+- in branch main: 8 (8 direct)
+
 [mantra](https://github.com/mhatzl/mantra) must offer a `sync` command to synchronize reference counts
 between requirements in the wiki, and references in implementation and tests.
 Maintaining them manually is infeasible.

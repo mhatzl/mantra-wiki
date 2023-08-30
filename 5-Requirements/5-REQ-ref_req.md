@@ -1,5 +1,9 @@
 # ref_req: Reference requirements
 
+**References:**
+
+- in branch main: 3 (2 direct)
+
 It must be possible to reference requirements using their IDs.
 Otherwise, semi-automatic tracing is not possible, because [mantra](https://github.com/mhatzl/mantra) cannot determine if a requirement is *active* or not.
 
@@ -16,5 +20,9 @@ This syntax was chosen, because it should be independent enough in most programm
 Using regex simplifies the implementation effort, because textual files may be searched without the need to first analyze the semantics of a programming language.
 
 ## ref_req.test: Test requirement referencing
+
+**References:**
+
+- in branch main: 1
 
 Add a test to make sure that references are found in some content.

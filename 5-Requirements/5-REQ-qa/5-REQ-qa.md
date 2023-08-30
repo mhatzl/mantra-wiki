@@ -1,5 +1,9 @@
 # qa: Quality Assurance
 
+**References:**
+
+- in branch main: 2 (0 direct)
+
 *QA* requirements help to ensure a high quality for [mantra](https://github.com/mhatzl/mantra).
 
 **Note:** General *QA* requirements affect the overall architecture and implementation of [mantra](https://github.com/mhatzl/mantra), because they are not specific to a feature/functionality.

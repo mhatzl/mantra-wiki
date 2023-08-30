@@ -1,5 +1,9 @@
 ## req_id.sub_req_id: Sub-requirements for high-level requirements
 
+**References:**
+
+- in branch main: 5
+
 Requirement IDs must be structured in a way that allows to create requirement hierarchies,
 because most systems/projects have high-level requirements that are then broken up into smaller low-level requirements.
 

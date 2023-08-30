@@ -1,5 +1,9 @@
 # wiki.ref_list: *References* list
 
+**References:**
+
+- in branch main: 12 (11 direct)
+
 As a developer, I want to know what requirements are currently *active*,
 because I need to know what requirements must be considered during implementation.
 
