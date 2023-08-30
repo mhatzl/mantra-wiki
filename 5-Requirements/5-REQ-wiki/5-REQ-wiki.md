@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch main: 19 (7 direct)
+- in branch main: 22 (9 direct)
 
 Requirements must be documented at a more permanent location than in issues,
 because with issues it is nearly impossible to keep track of currently *active* requirements.

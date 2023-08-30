@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch main: 14 (9 direct)
+- in branch main: 15 (10 direct)
 
 Every requirement must have a unique ID assigned to it in the wiki,
 because some way of identification is needed to reference requirements in implementation and tests.
