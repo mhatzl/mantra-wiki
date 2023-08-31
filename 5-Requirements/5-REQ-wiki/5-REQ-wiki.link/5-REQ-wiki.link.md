@@ -11,3 +11,30 @@ Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
 
 - [req:wiki.link.check]
 - [req:wiki.link.update]
+
+## Implementation details
+
+The URL-prefix to the wiki must be given to *mantra*.
+Otherwise, it is not possible to check or construct a *wiki-link*.
+
+The *wiki-link* also depends on the wiki provider.
+e.g. The GitHub wiki has no concept of *sub-pages*, making every file in the wiki folder a top-level page.
+
+### GitHub wiki
+
+- **Filepath to page:**
+
+  Every file, independent of the path, is converted to a *root* page in the wiki.
+  Consequently, only the filename is considered as part of the link.
+
+- **Filename conversion:**
+
+  1. Strip file extension
+  1. Replace whitespace with hyphen `-`
+
+- **Heading conversion:**
+
+  1. Remove punctuations
+  1. Remove leading whitespace
+  1. Convert to lower case
+  1. Replace remaining whitespace with hyphen `-`
