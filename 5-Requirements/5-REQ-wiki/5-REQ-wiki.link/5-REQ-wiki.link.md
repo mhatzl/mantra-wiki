@@ -5,6 +5,8 @@ This allows to automatically add links to the requirement entry in the wiki, mak
 
 *mantra* must be able to handle these links automatically, because links might change, and manual *bookkeeping* is too tedious.
 
+Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
+
 ## Sub-requirements
 
 - [req:wiki.link.check]
