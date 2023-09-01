@@ -14,5 +14,7 @@ Therefore, these requirements must be considered for every existing or new featu
 ## Sub-requirements
 
 - [req:qa.DoD](5-REQ-qa.DoD)
+- [req:qa.pipeline](5-REQ-qa.pipeline)
+- [req:qa.sustain](5-REQ-qa.sustain)
 - [req:qa.tracing](5-REQ-qa.tracing)
 - [req:qa.ux](5-REQ-qa.ux)
