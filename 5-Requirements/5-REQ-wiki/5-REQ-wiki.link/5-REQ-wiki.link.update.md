@@ -2,4 +2,4 @@
 
 *mantra* must be able to automatically add and update *wiki-links*.
 
-Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
+Created in response to [issue #6](https://github.com/mhatzl/mantra/issues/6).
