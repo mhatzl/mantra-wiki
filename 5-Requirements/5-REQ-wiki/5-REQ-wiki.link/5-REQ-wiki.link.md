@@ -1,5 +1,9 @@
 # wiki.link: Manage links to requirements
 
+**References:**
+
+- in branch main: 7 (4 direct)
+
 The reference syntax `[req:req_id]` is very similar to a Markdown hyperlink.
 This allows to automatically add links to the requirement entry in the wiki, making references more like *wiki-links*.
 
