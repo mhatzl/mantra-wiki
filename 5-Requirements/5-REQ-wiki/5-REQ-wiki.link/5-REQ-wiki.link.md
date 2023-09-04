@@ -4,7 +4,7 @@
 
 - in branch main: 7 (4 direct)
 
-The reference syntax `[req:req_id]` is very similar to a Markdown hyperlink.
+The reference syntax `[req:req_id](5-REQ-req_id#req_id-requirement-id)` is very similar to a Markdown hyperlink.
 This allows to automatically add links to the requirement entry in the wiki, making references more like *wiki-links*.
 
 *mantra* must be able to handle these links automatically, because links might change, and manual *bookkeeping* is too tedious.
@@ -13,8 +13,8 @@ Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
 
 ## Sub-requirements
 
-- [req:wiki.link.check](5-REQ-wiki.link.check)
-- [req:wiki.link.update](5-REQ-wiki.link.update)
+- [req:wiki.link.check](5-REQ-wiki.link.check#wikilinkcheck-check-validity-of-wiki-links)
+- [req:wiki.link.update](5-REQ-wiki.link.update#wikilinkupdate-automatically-update-wiki-links)
 
 ## Implementation details
 

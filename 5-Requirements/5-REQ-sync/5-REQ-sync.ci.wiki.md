@@ -7,11 +7,11 @@ Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
 
 ## Implementation details
 
-The ci-action would be similar to [req:sync.ci.code](5-REQ-sync.ci.code), because references are still taken from implementation and tests side.
+The ci-action would be similar to [req:sync.ci.code](5-REQ-sync.ci.code#synccicode-ci-support-for-mantra-sync-in-the-project-repository), because references are still taken from implementation and tests side.
 However, this ci-action must validate wiki-links for references to requirements inside the wiki.
 
-**Note:** It is not necessary to validate links inside the wiki with [req:sync.ci.code](5-REQ-sync.ci.code),
+**Note:** It is not necessary to validate links inside the wiki with [req:sync.ci.code](5-REQ-sync.ci.code#synccicode-ci-support-for-mantra-sync-in-the-project-repository),
 because links are already validated by the ci-action for this requirement.
 
-**Note:** Validating links inside the wiki with [req:sync.ci.code](5-REQ-sync.ci.code) might even be too complicated,
+**Note:** Validating links inside the wiki with [req:sync.ci.code](5-REQ-sync.ci.code#synccicode-ci-support-for-mantra-sync-in-the-project-repository) might even be too complicated,
 because ci-actions run on the project may not receive the full wiki content.
