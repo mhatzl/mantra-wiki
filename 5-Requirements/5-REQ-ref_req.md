@@ -7,7 +7,7 @@
 It must be possible to reference requirements using their IDs.
 Otherwise, semi-automatic tracing is not possible, because [mantra](https://github.com/mhatzl/mantra) cannot determine if a requirement is *active* or not.
 
-The syntax to reference requirements is: `[req:req_id]`
+The syntax to reference requirements is: `[req:req_id](5-REQ-req_id#req_id-requirement-id)`
 
 **Note:** `req_id` is used as placeholder, and must be replaced by an existing ID.
 

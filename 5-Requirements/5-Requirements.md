@@ -4,17 +4,17 @@ This section contains requirements for the system.
 
 **High-Level Requirements:**
 
-- [req:qa](5-REQ-qa) ... Contains requirements about general quality assurance
-- [req:ref_req](5-REQ-ref_req) ... Contains the requirement to reference requirements 
-- [req:req_id](5-REQ-req_id) ... Contains requirements about the requirement ID
-- [req:sync](5-REQ-sync) ... Contains requirements about *mantra sync*
-- [req:wiki](5-REQ-wiki) ... Contains requirements about the content of the wiki
+- [req:qa](5-REQ-qa#qa-quality-assurance) ... Contains requirements about general quality assurance
+- [req:ref_req](5-REQ-ref_req#ref_req-reference-requirements) ... Contains the requirement to reference requirements 
+- [req:req_id](5-REQ-req_id#req_id-requirement-id) ... Contains requirements about the requirement ID
+- [req:sync](5-REQ-sync#sync-synchronize-wiki-implementation-and-tests) ... Contains requirements about *mantra sync*
+- [req:wiki](5-REQ-wiki#wiki-documentation-for-requirements) ... Contains requirements about the content of the wiki
 
 **Important Requirements:**
 
-- [req:ref_req](5-REQ-ref_req) ... Contains the requirement to reference requirements
-- [req:req_id](5-REQ-req_id) ... Contains requirements about the requirement ID
-- [req:wiki.ref_list](5-REQ-wiki.ref_list) ... Contains requirements about the structure of the *references* list
+- [req:ref_req](5-REQ-ref_req#ref_req-reference-requirements) ... Contains the requirement to reference requirements
+- [req:req_id](5-REQ-req_id#req_id-requirement-id) ... Contains requirements about the requirement ID
+- [req:wiki.ref_list](5-REQ-wiki.ref_list#wikiref_list-references-list) ... Contains requirements about the structure of the *references* list
 
 ## Requirement ID
 
@@ -67,7 +67,7 @@ that are one level *deeper*. This helps with navigation through the wiki.
 
 **Note:** To keep pages short, sub-requirements should in general be placed in their own files.
 
-The syntax to reference requirements as defined in [req:qa.tracing](5-REQ-qa.tracing) may be used to link to sub-requirements.
+The syntax to reference requirements as defined in [req:qa.tracing](5-REQ-qa.tracing#qatracing-use-requirement-ids-in-mantrahttpsgithubcommhatzlmantra) may be used to link to sub-requirements.
 This allows to use [mantra](https://github.com/mhatzl/mantra) to update the links to those sub-requirements.
 
 **Example:**
@@ -230,7 +230,7 @@ A requirement may be considered **ready** if it fulfills the following statement
   - It is clear where the requirement must be placed in the wiki
   - The ID for the requirement is decided and unique in the wiki
   - All currently raised concerns by stakeholders are resolved
-  - Active quality assurance requirements were considered (see [req:qa](5-REQ-qa))
+  - Active quality assurance requirements were considered (see [req:qa](5-REQ-qa#qa-quality-assurance))
 
 - **For high-level requirements:**
 

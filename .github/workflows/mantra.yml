@@ -10,7 +10,7 @@ permissions:
 jobs:
     # Updates wiki-links in the wiki.
     #
-    # [req:wiki.link.update]
+    # [req:wiki.link.update](5-REQ-wiki.link.update#wikilinkupdate-automatically-update-wiki-links)
     mantra-link:
         runs-on: ubuntu-latest
         container:
