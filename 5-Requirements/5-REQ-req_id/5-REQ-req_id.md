@@ -13,4 +13,4 @@ Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
 
 ## Sub-requirements
 
-- [req:req_id.sub_req_id](5-REQ-req_id.sub_req_id)
+- [req:req_id.sub_req_id](/5-REQ-req_id.sub_req_id#req_idsub_req_id-sub-requirements-for-high-level-requirements)
