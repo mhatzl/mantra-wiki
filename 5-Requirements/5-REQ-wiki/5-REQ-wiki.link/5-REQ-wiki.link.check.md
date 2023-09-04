@@ -1,5 +1,9 @@
 # wiki.link.check: Check validity of *wiki-links*
 
+**References:**
+
+- in branch main: 1
+
 *mantra* must check every existing *wiki-link* to validate if the link is still correct.
 
 **Note:** To prevent an unnecessary amount of requests to the wiki-host, the links should only be validated

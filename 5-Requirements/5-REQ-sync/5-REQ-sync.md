@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch main: 9 (9 direct)
+- in branch main: 6 (6 direct)
 
 [mantra](https://github.com/mhatzl/mantra) must offer a `sync` command to synchronize reference counts
 between requirements in the wiki, and references in implementation and tests.

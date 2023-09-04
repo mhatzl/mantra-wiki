@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch main: 2 (0 direct)
+- in branch main: 9 (0 direct)
 
 *QA* requirements help to ensure a high quality for [mantra](https://github.com/mhatzl/mantra).
 
