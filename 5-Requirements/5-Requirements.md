@@ -4,6 +4,7 @@ This section contains requirements for the system.
 
 **High-Level Requirements:**
 
+- [req:check](5-REQ-check) ... Contains requirements about *mantra check*
 - [req:qa](5-REQ-qa) ... Contains requirements about general quality assurance
 - [req:ref_req](5-REQ-ref_req) ... Contains the requirement to reference requirements 
 - [req:req_id](5-REQ-req_id) ... Contains requirements about the requirement ID
