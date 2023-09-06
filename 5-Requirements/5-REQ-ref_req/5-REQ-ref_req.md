@@ -20,6 +20,10 @@ while still being able to distinguish an expression from a requirement reference
 
 Using regex simplifies the implementation effort, because textual files may be searched without the need to first analyze the semantics of a programming language.
 
+## Sub-requirements
+
+- [req:ref_req.ignore](5-REQ-ref_req.ignore)
+
 ## ref_req.test: Test requirement referencing
 
 **References:**
