@@ -13,8 +13,8 @@ Therefore, these requirements must be considered for every existing or new featu
 
 ## Sub-requirements
 
-- [req:qa.DoD](5-REQ-qa.DoD#qadod-have-a-definition-of-done-for-requirements)
-- [req:qa.pipeline](5-REQ-qa.pipeline#qapipeline-pipeline-to-ensure-a-high-library-quality)
-- [req:qa.sustain](5-REQ-qa.sustain#qasustain-consider-sustainability-during-design-and-development)
-- [req:qa.tracing](5-REQ-qa.tracing#qatracing-use-requirement-ids-in-mantrahttpsgithubcommhatzlmantra)
-- [req:qa.ux](5-REQ-qa.ux#qaux-experience-using-mantra)
+- [req:qa.DoD](5-REQ-qa.DoD)
+- [req:qa.pipeline](5-REQ-qa.pipeline)
+- [req:qa.sustain](5-REQ-qa.sustain)
+- [req:qa.tracing](5-REQ-qa.tracing)
+- [req:qa.ux](5-REQ-qa.ux)

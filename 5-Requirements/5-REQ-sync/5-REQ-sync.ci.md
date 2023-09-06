@@ -12,5 +12,5 @@ to make external git repositories local.
 
 ## Sub-requirements
 
-- [req:sync.ci.code](5-REQ-sync.ci.code#synccicode-ci-support-for-mantra-sync-in-the-project-repository)
-- [req:sync.ci.wiki](5-REQ-sync.ci.wiki#syncciwiki-ci-support-for-mantra-sync-in-the-wiki-repository)
+- [req:sync.ci.code](5-REQ-sync.ci.code)
+- [req:sync.ci.wiki](5-REQ-sync.ci.wiki)

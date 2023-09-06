@@ -47,4 +47,4 @@ A high-level flow on how to implement synchronization is described in [DR-202308
 
 ## Sub-requirements
 
-- [req:sync.ci](5-REQ-sync.ci#syncci-ci-support-for-mantra-sync)
+- [req:sync.ci](5-REQ-sync.ci)

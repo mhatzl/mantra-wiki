@@ -13,8 +13,8 @@ Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
 
 ## Sub-requirements
 
-- [req:wiki.link.check](5-REQ-wiki.link.check#wikilinkcheck-check-validity-of-wiki-links)
-- [req:wiki.link.update](5-REQ-wiki.link.update#wikilinkupdate-automatically-update-wiki-links)
+- [req:wiki.link.check](5-REQ-wiki.link.check)
+- [req:wiki.link.update](5-REQ-wiki.link.update)
 
 ## Implementation details
 
