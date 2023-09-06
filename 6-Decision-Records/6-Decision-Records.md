@@ -1,6 +1,7 @@
 **Recent decisions:**
 
-- [DR-20230823_2](6-DR20230823_2) ... Decisions about implementing [req:sync](5-REQ-sync)
+- [DR-20230906](6-DR-20230609) ... Decision to remove the `link` command
+- [DR-20230823_2](6-DR-20230823_2) ... Decisions about implementing [req:sync](5-REQ-sync)
 - [DR-20230823](6-DR-20230823)... Decisions about the *references* list
 
 ## Guidelines

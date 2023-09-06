@@ -38,7 +38,7 @@ other_req.sub_req.even_lower_req
 Requirements should have a consistent structure to improve the readability.
 
 If [mantra](https://github.com/mhatzl/mantra) is used for tracing,
-every requirement must start with the heading with the ID assigned to the requirement.
+every requirement must start the heading with the ID assigned to the requirement.
 [mantra](https://github.com/mhatzl/mantra) uses a *references* list to trace requirements between the wiki, implementation, and tests.
 This list is placed by [mantra](https://github.com/mhatzl/mantra) directly below the requirement heading.
 
@@ -63,12 +63,7 @@ that are one level *deeper*. This helps with navigation through the wiki.
 
 **Note:** This section should link to sub-requirements independent of their phase, because adapting this section would otherwise be too cumbersome.
 
-**Note:** Linking to sub-requirements that are more than one level *deeper* is also too cumbersome to maintain.
-
 **Note:** To keep pages short, sub-requirements should in general be placed in their own files.
-
-The syntax to reference requirements as defined in [req:qa.tracing](5-REQ-qa.tracing) may be used to link to sub-requirements.
-This allows to use [mantra](https://github.com/mhatzl/mantra) to update the links to those sub-requirements.
 
 **Example:**
 
@@ -94,8 +89,6 @@ However, creating a sub-requirement for each test case may be too tedious.
 In this case it is probably better to create an overall test requirement with `<your_req>.test` as ID.
 This requirement may then contain descriptions for multiple test cases, while only requiring to remember one ID.
 A "Definition of Done" specific to the requirement may then be defined that enforces that all test cases described in the `.test` ID must be fulfilled.
-
-**Note:** A requirement is **not** considered as high-level requirement if it only contains tests as sub-requirements.
 
 ```
 # req_id: Some title
@@ -206,7 +199,7 @@ A requirement goes through the following phases:
    Since the requirement might still be **active** in some branches, `deprecated` must be set manually to the branches
    the requirement is deprecated.
 
-   The requirement must be deleted if the requirement is **deprecated** in all branches, to keep the wiki small.
+   The requirement should be deleted if the requirement is **deprecated** in all branches, to keep the wiki small.
 
    **Note:** A link should be added in the **deprecated** requirement, pointing to the new requirement for better traceability.
 

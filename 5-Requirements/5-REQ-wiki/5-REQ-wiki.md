@@ -14,5 +14,4 @@ Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
 
 ## Sub-requirements
 
-- [req:wiki.link](5-REQ-wiki.link)
 - [req:wiki.ref_list](5-REQ-wiki.ref_list)

@@ -29,20 +29,6 @@ Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
 
   **Note:** [mantra](https://github.com/mhatzl/mantra) must have write access in this location to update the *references* list.
 
-- Wiki-URL prefix for requirements
-
-  The prefix that must be set for every wiki-link of a reference to correctly point to the requirement in the wiki.
-
-  **Note:** This setting is more specific to the kind of wiki, because GitHub for example flattens folders,
-  making every file available at the root level of the wiki.
-
-- Optional: Wiki-kind
-
-  The kind of supported wikis that is used to store requirements.
-  Needed because wikis might need to be handled differently.
-
-  **Note:** Use the GitHub wiki as default.
-
 A high-level flow on how to implement synchronization is described in [DR-20230823_2](6-DR-20230823_2). 
 
 ## Sub-requirements
