@@ -37,3 +37,5 @@ so it is easier to find the list using regex.
 ## Sub-requirements
 
 - [req:wiki.ref_list.branch_link](5-REQ-wiki.ref_list.branch_link)
+- [req:wiki.ref_list.deprecated](5-REQ-wiki.ref_list.deprecated)
+- [req:wiki.ref_list.manual](5-REQ-wiki.ref_list.manual)
