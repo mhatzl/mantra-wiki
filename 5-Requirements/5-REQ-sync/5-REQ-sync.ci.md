@@ -1,5 +1,9 @@
 # sync.ci: CI support for *mantra sync*
 
+**References:**
+
+- in branch main: 1 (0 direct)
+
 [mantra](https://github.com/mhatzl/mantra) must offer the possibility to automate
 synchronization between wiki, implementation, and tests, because it is infeasible to do manually.
 
