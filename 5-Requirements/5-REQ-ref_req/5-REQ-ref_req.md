@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch main: 4 (2 direct)
+- in branch main: 5 (3 direct)
 
 It must be possible to reference requirements using their IDs.
 Otherwise, semi-automatic tracing is not possible, because [mantra](https://github.com/mhatzl/mantra) cannot determine if a requirement is *active* or not.

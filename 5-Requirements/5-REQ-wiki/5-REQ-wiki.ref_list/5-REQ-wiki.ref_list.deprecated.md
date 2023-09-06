@@ -1,5 +1,9 @@
 # wiki.ref_list.deprecated: Mark requirements as *deprecated* in specific branches
 
+**References:**
+
+- in branch [main](https://github.com/mhatzl/mantra/tree/main): 2
+
 It must be possible to explicitly mark requirements as *deprecated*,
 because *mantra* cannot know if 0 references means *ready* or *deprecated*.
 
