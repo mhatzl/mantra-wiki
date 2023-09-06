@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch main: 1 (0 direct)
+- in branch main: 1 (1 direct)
 
 [mantra](https://github.com/mhatzl/mantra) must offer the possibility to automate
 synchronization between wiki, implementation, and tests, because it is infeasible to do manually.

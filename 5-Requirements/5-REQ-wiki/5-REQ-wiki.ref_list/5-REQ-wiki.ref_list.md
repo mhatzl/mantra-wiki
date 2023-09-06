@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch main: 13 (12 direct)
+- in branch main: 14 (13 direct)
 
 As a developer, I want to know what requirements are currently *active*,
 because I need to know what requirements must be considered during implementation.
