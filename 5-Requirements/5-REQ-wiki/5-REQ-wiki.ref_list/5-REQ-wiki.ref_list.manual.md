@@ -12,6 +12,9 @@ To show that references were found, the counter must be added after the flag.
 The `manual` flag may be set per entry in the *references* list.
 The list may be created manually, because *mantra* would only create the list if it found references in code. 
 
+A `manual` flag must count as **one** reference for parent requirements,
+because the sub-requirement can be seen as *manually* traced.
+
 **Example:**
 
 ```
