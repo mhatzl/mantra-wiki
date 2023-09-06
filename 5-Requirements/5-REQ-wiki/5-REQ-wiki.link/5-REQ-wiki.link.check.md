@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch main: 1
+- in branch main: 0
 
 *mantra* must check every existing *wiki-link* to validate if the link is still correct.
 

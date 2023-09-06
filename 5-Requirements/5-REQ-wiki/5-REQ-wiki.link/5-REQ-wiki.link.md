@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch main: 7 (4 direct)
+- in branch main: 0
 
 The reference syntax `[req:req_id](5-REQ-req_id#req_id-requirement-id)` is very similar to a Markdown hyperlink.
 This allows to automatically add links to the requirement entry in the wiki, making references more like *wiki-links*.

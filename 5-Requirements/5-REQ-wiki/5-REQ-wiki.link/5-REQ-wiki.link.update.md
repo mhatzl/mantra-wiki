@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch main: 2
+- in branch main: 0
 
 *mantra* must be able to automatically add and update *wiki-links*.
 
