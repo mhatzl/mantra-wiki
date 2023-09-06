@@ -1,5 +1,9 @@
 # wiki.ref_list.manual: Mark requirements to require manual verification
 
+**References:**
+
+- in branch [main](https://github.com/mhatzl/mantra/tree/main): 3
+
 Some requirements may require manual verification, because it is either not possible to trace them in code,
 or they cannot be verified automatically.
 Therefore, it must be possible to mark requirements with `manual`, because *mantra* itself cannot detect
