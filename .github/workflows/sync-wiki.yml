@@ -11,14 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.MANTRA_WIKI_SYNC }}
       - name: Add wiki repo and push changes
 
         # TODO: try to fix "remote: fatal: did not receive expected object 16a4c..." error
 
         # Note: `master` is the default branch for GitHub wikis
         run: |
-          git config --global user.email "wikibot@yourdomain.com"
+          git config --global user.email "wikibot@github.com"
           git config --global user.name "Wiki Template Bot"
           git remote add upstream https://github.com/mhatzl/mantra.wiki.git
           git fetch upstream
