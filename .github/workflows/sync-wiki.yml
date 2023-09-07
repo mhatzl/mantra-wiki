@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.MANTRA_WIKI_SYNC }}
+          fetch-depth: 0
       - name: Add wiki repo and push changes
 
         # TODO: try to fix "remote: fatal: did not receive expected object 16a4c..." error
