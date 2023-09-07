@@ -69,3 +69,7 @@ See log output for more details.
 ```
 
 Created in response to [issue #2](https://github.com/mhatzl/mantra/issues/2) and [issue #8](https://github.com/mhatzl/mantra/issues/8).
+
+# Sub-requirements
+
+- [req:check.ci](5-REQ-check.ci)
