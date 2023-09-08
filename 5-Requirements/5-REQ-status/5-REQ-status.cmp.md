@@ -11,10 +11,10 @@ e.g. not all *active* requirements of `feature-branch-x` are *active* in `main`.
 ```
 **Wiki differences between `branch-a` and `branch-b`:**
 
-| REQ-ID | branch-a | branch-b        |
-| ------ | -------- | --------------- |
-| req_id | *ready*  | *active*        |
-| man_id | *manual* | *manual-traced* |
+| REQ-ID | branch-a | branch-b      |
+| ------ | -------- | ------------- |
+| req_id | ready    | active        |
+| man_id | manual   | manual-traced |
 ```
 
 **Note:** `manual-traced` means the requirement has the *manual* flag, but also has references in the project.
