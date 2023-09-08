@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch [main](https://github.com/mhatzl/mantra/tree/main): 6
+- in branch [main](https://github.com/mhatzl/mantra/tree/main): 7 (6 direct)
 
 *mantra* must offer a `check` command to validate the wiki structure, and references in the project.
 The command must provide an overview that contains reference count changes, list referenced *deprecated* requirements,
