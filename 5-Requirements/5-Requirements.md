@@ -4,16 +4,17 @@ This section contains requirements for the system.
 
 **High-Level Requirements:**
 
-- [req:check](5-REQ-check) ... Contains requirements about *mantra check*
+- [req:check](5-REQ-check) ... Contains requirements for *mantra check*
 - [req:qa](5-REQ-qa) ... Contains requirements about general quality assurance
-- [req:ref_req](5-REQ-ref_req) ... Contains the requirement to reference requirements 
+- [req:ref_req](5-REQ-ref_req) ... Contains the requirement on how to reference requirements 
 - [req:req_id](5-REQ-req_id) ... Contains requirements about the requirement ID
-- [req:sync](5-REQ-sync) ... Contains requirements about *mantra sync*
+- [req:status](5-REQ-status) ... Contains requirements for *mantra status*
+- [req:sync](5-REQ-sync) ... Contains requirements for *mantra sync*
 - [req:wiki](5-REQ-wiki) ... Contains requirements about the content of the wiki
 
 **Important Requirements:**
 
-- [req:ref_req](5-REQ-ref_req) ... Contains the requirement to reference requirements
+- [req:ref_req](5-REQ-ref_req) ... Contains the requirement on how to reference requirements
 - [req:req_id](5-REQ-req_id) ... Contains requirements about the requirement ID
 - [req:wiki.ref_list](5-REQ-wiki.ref_list) ... Contains requirements about the structure of the *references* list
 
