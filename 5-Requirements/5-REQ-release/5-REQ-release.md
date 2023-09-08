@@ -16,3 +16,7 @@ The link to the wiki should be an optional argument, because the wiki might not 
 ```
 
 Created in response to [issue #3](https://github.com/mhatzl/mantra/issues/3).
+
+# Sub-requirements
+
+- [req:release.checklist](5-REQ-release.checklist)
