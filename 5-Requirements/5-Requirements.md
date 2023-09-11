@@ -6,7 +6,8 @@ This section contains requirements for the system.
 
 - [req:check](5-REQ-check) ... Contains requirements for *mantra check*
 - [req:qa](5-REQ-qa) ... Contains requirements about general quality assurance
-- [req:ref_req](5-REQ-ref_req) ... Contains the requirement on how to reference requirements 
+- [req:ref_req](5-REQ-ref_req) ... Contains the requirement on how to reference requirements
+- [req:release](5-REQ-release) ... Contains the requirements for release artifacts 
 - [req:req_id](5-REQ-req_id) ... Contains requirements about the requirement ID
 - [req:status](5-REQ-status) ... Contains requirements for *mantra status*
 - [req:sync](5-REQ-sync) ... Contains requirements for *mantra sync*
