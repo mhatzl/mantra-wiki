@@ -3,6 +3,7 @@
 **References:**
 
 - in branch [main](https://github.com/mhatzl/mantra/tree/main): 16 (5 direct)
+- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 16 (5 direct)
 
 As product owner or developer, I want to see an overview of the requirements in the wiki,
 because it helps with prioritizing future work.

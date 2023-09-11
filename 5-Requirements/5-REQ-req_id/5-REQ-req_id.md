@@ -3,6 +3,7 @@
 **References:**
 
 - in branch main: 16 (11 direct)
+- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 16 (11 direct)
 
 Every requirement must have a unique ID assigned to it in the wiki,
 because some way of identification is needed to reference requirements in implementation and tests.

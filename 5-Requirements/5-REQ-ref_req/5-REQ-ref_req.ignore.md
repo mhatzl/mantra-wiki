@@ -3,6 +3,7 @@
 **References:**
 
 - in branch [main](https://github.com/mhatzl/mantra/tree/main): 1
+- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 1
 
 It must be possible to somehow notify *mantra* to ignore references,
 because the reference syntax may be used as an example somewhere.

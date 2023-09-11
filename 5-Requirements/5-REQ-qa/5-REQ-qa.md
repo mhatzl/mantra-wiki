@@ -3,6 +3,7 @@
 **References:**
 
 - in branch main: 9 (0 direct)
+- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 9 (0 direct)
 
 *QA* requirements help to ensure a high quality for [mantra](https://github.com/mhatzl/mantra).
 

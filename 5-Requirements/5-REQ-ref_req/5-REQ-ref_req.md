@@ -3,6 +3,7 @@
 **References:**
 
 - in branch main: 5 (3 direct)
+- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 5 (3 direct)
 
 It must be possible to reference requirements using their IDs.
 Otherwise, semi-automatic tracing is not possible, because [mantra](https://github.com/mhatzl/mantra) cannot determine if a requirement is *active* or not.
@@ -29,5 +30,6 @@ Using regex simplifies the implementation effort, because textual files may be s
 **References:**
 
 - in branch main: 1
+- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 1
 
 Add a test to make sure that references are found in some content.

@@ -3,6 +3,7 @@
 **References:**
 
 - in branch main: 38 (10 direct)
+- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 38 (10 direct)
 
 Requirements must be documented at a more permanent location than in issues,
 because with issues it is nearly impossible to keep track of currently *active* requirements.

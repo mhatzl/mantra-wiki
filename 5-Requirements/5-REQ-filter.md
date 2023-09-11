@@ -3,6 +3,7 @@
 **References:**
 
 - in branch [main](https://github.com/mhatzl/mantra/tree/main): 1
+- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 1
 
 Many repositories contain files and folders that should be ignored when searching for references.
 e.g. build outputs, git folder, ...

@@ -3,6 +3,7 @@
 **References:**
 
 - in branch main: 1
+- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 1
 
 [mantra](https://github.com/mhatzl/mantra) must offer the possibility to automate
 synchronization between wiki, implementation, and tests, because it is infeasible to do manually.
