@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch [main](https://github.com/mhatzl/mantra/tree/main): 3
+- in branch [main](https://github.com/mhatzl/mantra/tree/main): 2
 
 As described in [DR-20230823](6-DR-20230823) the *references* list contains an entry per branch that mantra is run against,
 because each branch may have different reference counts.
