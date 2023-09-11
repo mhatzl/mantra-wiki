@@ -6,7 +6,7 @@ Sidebar that is displayed on every wiki page.
 
 ### **REQ-Referencing Overview:**
 
-**Last update:** 2023-09-11_17:01 UTC  
+**Last update:** 2023-09-11_17:08 UTC  
 **Repository:** mhatzl/mantra  
-**Branch:** sidebar  
-**Commit:** [c6a211f](https://github.com/mhatzl/mantra/commit/c6a211f8cb3ee4480346631ca87dad5b8d96e3c4)  
+**Branch:** main  
+**Commit:** [2c62734](https://github.com/mhatzl/mantra/commit/2c6273407641f5cf415ab34d4d26c2c0a37d763d)  
