@@ -5,6 +5,7 @@ This section contains requirements for the system.
 **High-Level Requirements:**
 
 - [req:check](5-REQ-check) ... Contains requirements for *mantra check*
+- [req:filter](5-REQ-filter) ... Contains the requirement to ignore files and folders for referencing
 - [req:qa](5-REQ-qa) ... Contains requirements about general quality assurance
 - [req:ref_req](5-REQ-ref_req) ... Contains the requirement on how to reference requirements
 - [req:release](5-REQ-release) ... Contains the requirements for release artifacts 
