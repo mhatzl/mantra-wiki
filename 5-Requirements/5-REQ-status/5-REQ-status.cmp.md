@@ -1,5 +1,9 @@
 # status.cmp: Compare status of two branches in the wiki
 
+**References:**
+
+- in branch [main](https://github.com/mhatzl/mantra/tree/main): 4
+
 As a product owner, I want to compare the wiki state of two branches,
 because it helps to detect outstanding work.
 e.g. not all *active* requirements of `feature-branch-x` are *active* in `main`.
