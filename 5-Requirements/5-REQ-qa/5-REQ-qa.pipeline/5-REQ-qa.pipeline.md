@@ -3,7 +3,6 @@
 **References:**
 
 - in branch main: 4 (0 direct)
-- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 4 (0 direct)
 
 A QA pipeline that is run on every PR and push to *main* ensures higher code quality.\
 Running pipeline steps in a defined sequence prevents unnecessary checks, which improves sustainability (see: [req:qa.sustain](5-REQ-qa.sustain)).

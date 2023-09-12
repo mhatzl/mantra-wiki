@@ -3,7 +3,6 @@
 **References:**
 
 - in branch main: 5
-- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 5
 
 Requirement IDs must be structured in a way that allows to create requirement hierarchies,
 because most systems/projects have high-level requirements that are then broken up into smaller low-level requirements.

@@ -3,7 +3,6 @@
 **References:**
 
 - in branch [main](https://github.com/mhatzl/mantra/tree/main): 1
-- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 1
 
 As reviewer, I want to get an overview of the reference changes this PR would introduce,
 because it helps to decide how to handle the PR before looking at code changes.

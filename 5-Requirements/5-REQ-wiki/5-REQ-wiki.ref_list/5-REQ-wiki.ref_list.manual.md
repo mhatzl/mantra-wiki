@@ -3,7 +3,6 @@
 **References:**
 
 - in branch [main](https://github.com/mhatzl/mantra/tree/main): 3
-- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 3
 
 Some requirements may require manual verification, because it is either not possible to trace them in code,
 or they cannot be verified automatically.

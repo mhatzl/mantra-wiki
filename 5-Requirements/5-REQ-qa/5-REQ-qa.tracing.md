@@ -3,7 +3,6 @@
 **References:**
 
 - in branch main: 1
-- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 1
 
 Requirement IDs should be set in [mantra](https://github.com/mhatzl/mantra) at file locations, where the requirement is implemented,
 or where it affected the design of the implementation.

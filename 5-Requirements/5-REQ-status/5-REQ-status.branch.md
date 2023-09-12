@@ -3,7 +3,6 @@
 **References:**
 
 - in branch [main](https://github.com/mhatzl/mantra/tree/main): 7
-- in branch [sidebar](https://github.com/mhatzl/mantra/tree/sidebar): 7
 
 As product owner or developer, I want to see an overview of the requirements in the wiki for a specific branch,
 because I might only care about the state of this branch.
