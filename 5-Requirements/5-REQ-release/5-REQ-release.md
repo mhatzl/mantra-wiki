@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch [main](https://github.com/mhatzl/mantra/tree/main): 6 (5 direct)
+- in branch [main](https://github.com/mhatzl/mantra/tree/main): 9 (7 direct)
 
 As a product owner, I want to get a report of all *active* requirements for a given branch,
 because I can show this report to stakeholders as kind of release artifact.

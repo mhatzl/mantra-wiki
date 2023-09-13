@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch [main](https://github.com/mhatzl/mantra/tree/main): 1
+- in branch [main](https://github.com/mhatzl/mantra/tree/main): 2
 
 As a product owner, I want that mantra generates a checklist that contains all requirements marked with the *manual* flag,
 because I want to make sure that all of those *manual* requirements are verified before a release is published.

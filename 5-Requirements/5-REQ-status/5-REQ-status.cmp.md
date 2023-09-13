@@ -2,7 +2,7 @@
 
 **References:**
 
-- in branch [main](https://github.com/mhatzl/mantra/tree/main): 4
+- in branch [main](https://github.com/mhatzl/mantra/tree/main): 6
 
 As a product owner, I want to compare the wiki state of two branches,
 because it helps to detect outstanding work.
