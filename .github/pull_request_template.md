@@ -1,4 +1,4 @@
-# List of issues that this PR closes
+## List of issues that this PR closes
 
 [[
 
@@ -6,7 +6,7 @@ e.g. closes #1 closes #2 …
 
 ]]
 
-# Definition of Done
+## Definition of Done
 
 **Please consider the following tasks when adding new requirements:**
 
@@ -17,7 +17,7 @@ e.g. closes #1 closes #2 …
 
 **Note:** You may ignore tasks that are not relevant to your PR.
 
-# Decisions you made for this PR
+## Decisions you made for this PR
 
 {{
 
