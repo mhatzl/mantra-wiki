@@ -15,3 +15,4 @@ Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
 ## Sub-requirements
 
 - [req:wiki.ref_list](5-REQ-wiki.ref_list)
+- [req:wiki.req_id_wrap](5-REQ-wiki.req_id_wrap)
