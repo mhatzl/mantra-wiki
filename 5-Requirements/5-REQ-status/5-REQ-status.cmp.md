@@ -1,4 +1,4 @@
-# status.cmp: Compare status of two branches in the wiki
+# `status.cmp`: Compare status of two branches in the wiki
 
 **References:**
 

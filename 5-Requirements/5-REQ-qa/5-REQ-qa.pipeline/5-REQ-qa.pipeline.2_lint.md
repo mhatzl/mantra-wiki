@@ -1,4 +1,4 @@
-# qa.pipeline.2_lint: Ensure good coding standard
+# `qa.pipeline.2_lint`: Ensure good coding standard
 
 **References:**
 

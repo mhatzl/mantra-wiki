@@ -1,4 +1,4 @@
-# release: Release report
+# `release`: Release report
 
 **References:**
 

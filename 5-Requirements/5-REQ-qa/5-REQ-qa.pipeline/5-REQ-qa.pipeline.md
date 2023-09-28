@@ -1,4 +1,4 @@
-# qa.pipeline: Pipeline to ensure a high library quality
+# `qa.pipeline`: Pipeline to ensure a high library quality
 
 **References:**
 

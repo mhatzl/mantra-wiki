@@ -1,4 +1,4 @@
-# qa.DoD: Have a "Definition of Done" for requirements
+# `qa.DoD`: Have a "Definition of Done" for requirements
 
 **References:**
 

@@ -1,4 +1,4 @@
-# check.ci: Add check overview as PR comment
+# `check.ci`: Add check overview as PR comment
 
 **References:**
 

@@ -1,4 +1,4 @@
-# ref_req: Reference requirements
+# `ref_req`: Reference requirements
 
 **References:**
 
@@ -24,7 +24,7 @@ Using regex simplifies the implementation effort, because textual files may be s
 
 - [req:ref_req.ignore](5-REQ-ref_req.ignore)
 
-## ref_req.test: Test requirement referencing
+## `ref_req.test`: Test requirement referencing
 
 **References:**
 

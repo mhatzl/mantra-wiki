@@ -1,4 +1,4 @@
-# qa.pipeline.1_style: Ensure consistent formatting
+# `qa.pipeline.1_style`: Ensure consistent formatting
 
 **References:**
 

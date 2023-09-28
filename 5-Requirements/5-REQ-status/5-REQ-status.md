@@ -1,4 +1,4 @@
-# status: Show wiki status
+# `status`: Show wiki status
 
 **References:**
 

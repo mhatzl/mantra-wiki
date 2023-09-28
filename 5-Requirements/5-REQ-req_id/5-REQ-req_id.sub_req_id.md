@@ -1,4 +1,4 @@
-## req_id.sub_req_id: Sub-requirements for high-level requirements
+## `req_id.sub_req_id`: Sub-requirements for high-level requirements
 
 **References:**
 

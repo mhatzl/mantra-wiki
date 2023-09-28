@@ -1,4 +1,4 @@
-# check: Validate wiki and references
+# `check`: Validate wiki and references
 
 **References:**
 

@@ -42,7 +42,9 @@ other_req.sub_req.even_lower_req
 Requirements should have a consistent structure to improve the readability.
 
 If [mantra](https://github.com/mhatzl/mantra) is used for tracing,
-every requirement must start the heading with the ID assigned to the requirement.
+every requirement must start the heading with the ID assigned to the requirement to be able to reference it.
+The ID must be wrapped in backticks `` ` ``, to prevent wrongful ID detection.
+
 [mantra](https://github.com/mhatzl/mantra) uses a *references* list to trace requirements between the wiki, implementation, and tests.
 This list is placed by [mantra](https://github.com/mhatzl/mantra) directly below the requirement heading.
 
@@ -51,7 +53,7 @@ This list is placed by [mantra](https://github.com/mhatzl/mantra) directly below
 **Example:**
 
 ```
-# req_id: Some title
+# `req_id`: Some title
 
 **References:**
 
@@ -72,7 +74,7 @@ that are one level *deeper*. This helps with navigation through the wiki.
 **Example:**
 
 ```
-# req_id: Some title
+# `req_id`: Some title
 
 **References:**
 
@@ -95,7 +97,7 @@ This requirement may then contain descriptions for multiple test cases, while on
 A "Definition of Done" specific to the requirement may then be defined that enforces that all test cases described in the `.test` ID must be fulfilled.
 
 ```
-# req_id: Some title
+# `req_id`: Some title
 
 **References:**
 
@@ -103,7 +105,7 @@ A "Definition of Done" specific to the requirement may then be defined that enfo
 
 The description of the requirement.
 
-## req_id.test: Multiple test cases
+## `req_id.test`: Multiple test cases
 
 **References:**
 
@@ -152,7 +154,7 @@ A requirement goes through the following phases:
    **Example:**
 
    ```
-   # my_req: Some implemented requirement
+   # `my_req`: Some implemented requirement
    
    **References:**
 
@@ -165,7 +167,7 @@ A requirement goes through the following phases:
    **Example:**
 
    ```
-   # high_level: Some implemented high-level requirement
+   # `high_level`: Some implemented high-level requirement
    
    **References:**
 
@@ -178,7 +180,7 @@ A requirement goes through the following phases:
    **Example:**
 
    ```
-   # my_req: Requirement that needs manual verification
+   # `my_req`: Requirement that needs manual verification
    
    **References:**
 
@@ -191,7 +193,7 @@ A requirement goes through the following phases:
    **Example:**
 
    ```
-   # my_req: Requirement that needs manual verification, but is also referenced in code
+   # `my_req`: Requirement that needs manual verification, but is also referenced in code
    
    **References:**
 
@@ -210,7 +212,7 @@ A requirement goes through the following phases:
    **Example:**
 
    ```
-   # my_req: Got deprecated in latest version
+   # `my_req`: Got deprecated in latest version
 
    **References:**
 

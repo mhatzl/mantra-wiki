@@ -1,4 +1,4 @@
-# qa.sustain: Consider sustainability during design and development
+# `qa.sustain`: Consider sustainability during design and development
 
 **References:**
 

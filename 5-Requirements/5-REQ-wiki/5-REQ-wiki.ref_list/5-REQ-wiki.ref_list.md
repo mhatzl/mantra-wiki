@@ -1,4 +1,4 @@
-# wiki.ref_list: *References* list
+# `wiki.ref_list`: *References* list
 
 **References:**
 

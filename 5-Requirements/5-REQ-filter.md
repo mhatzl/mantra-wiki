@@ -1,4 +1,4 @@
-# filter: Use ignore files to restrict the search for references
+# `filter`: Use ignore files to restrict the search for references
 
 **References:**
 

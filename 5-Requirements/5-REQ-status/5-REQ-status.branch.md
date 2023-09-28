@@ -1,4 +1,4 @@
-# status.branch: See status for one branch in the wiki
+# `status.branch`: See status for one branch in the wiki
 
 **References:**
 

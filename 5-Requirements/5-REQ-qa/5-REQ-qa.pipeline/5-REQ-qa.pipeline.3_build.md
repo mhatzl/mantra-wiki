@@ -1,4 +1,4 @@
-# qa.pipeline.3_build: Ensure *evident* builds
+# `qa.pipeline.3_build`: Ensure *evident* builds
 
 **References:**
 

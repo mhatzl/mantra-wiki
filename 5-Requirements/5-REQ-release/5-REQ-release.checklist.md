@@ -1,4 +1,4 @@
-# release.checklist: Checklist for requirements marked with *manual* flag
+# `release.checklist`: Checklist for requirements marked with *manual* flag
 
 **References:**
 

@@ -1,4 +1,4 @@
-# wiki.ref_list.repo: Handle multiple repositories for one wiki
+# `wiki.ref_list.repo`: Handle multiple repositories for one wiki
 
 **References:**
 

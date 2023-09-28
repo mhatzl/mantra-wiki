@@ -1,4 +1,4 @@
-# sync: Synchronize wiki, implementation, and tests
+# `sync`: Synchronize wiki, implementation, and tests
 
 **References:**
 

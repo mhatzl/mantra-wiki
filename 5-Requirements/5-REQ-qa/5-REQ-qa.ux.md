@@ -1,4 +1,4 @@
-# qa.ux: Experience using *mantra*
+# `qa.ux`: Experience using *mantra*
 
 Using *mantra* must be simple and as little distracting as possible for developers and requirement engineers.
 Otherwise, *mantra* won't be used.

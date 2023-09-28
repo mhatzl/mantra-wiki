@@ -1,4 +1,4 @@
-# sync.ci: CI support for *mantra sync*
+# `sync.ci`: CI support for *mantra sync*
 
 **References:**
 

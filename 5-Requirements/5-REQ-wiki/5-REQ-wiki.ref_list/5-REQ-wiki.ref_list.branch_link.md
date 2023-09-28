@@ -1,4 +1,4 @@
-# wiki.ref_list.branch_link: Link to branches
+# `wiki.ref_list.branch_link`: Link to branches
 
 **References:**
 

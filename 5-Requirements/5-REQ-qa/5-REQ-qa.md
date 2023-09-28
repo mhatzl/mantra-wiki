@@ -1,4 +1,4 @@
-# qa: Quality Assurance
+# `qa`: Quality Assurance
 
 **References:**
 

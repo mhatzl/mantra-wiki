@@ -1,4 +1,4 @@
-# ref_req.ignore: Ignore requirement references
+# `ref_req.ignore`: Ignore requirement references
 
 **References:**
 

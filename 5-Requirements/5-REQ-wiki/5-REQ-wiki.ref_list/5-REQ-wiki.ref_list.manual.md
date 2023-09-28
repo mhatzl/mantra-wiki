@@ -1,4 +1,4 @@
-# wiki.ref_list.manual: Mark requirements to require manual verification
+# `wiki.ref_list.manual`: Mark requirements to require manual verification
 
 **References:**
 
@@ -22,13 +22,13 @@ because the sub-requirement can be seen as *manually* traced.
 **Example:**
 
 ```
-# my_req: Requirement must be manually verified
+# `my_req`: Requirement must be manually verified
 
 **References:**
 
 - in branch main: manual
 
-# other_req: Requirement must be manually verified, but is also referenced in code
+# `other_req`: Requirement must be manually verified, but is also referenced in code
 
 **References:**
 

@@ -1,4 +1,4 @@
-# qa.tracing: Use requirement IDs in [mantra](https://github.com/mhatzl/mantra)
+# `qa.tracing`: Use requirement IDs in [mantra](https://github.com/mhatzl/mantra)
 
 **References:**
 

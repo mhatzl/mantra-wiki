@@ -1,4 +1,4 @@
-# wiki.ref_list.deprecated: Mark requirements as *deprecated* in specific branches
+# `wiki.ref_list.deprecated`: Mark requirements as *deprecated* in specific branches
 
 **References:**
 
