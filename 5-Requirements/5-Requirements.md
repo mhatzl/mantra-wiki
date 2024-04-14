@@ -4,122 +4,53 @@ This section contains requirements for the system.
 
 **High-Level Requirements:**
 
-- [req:check](5-REQ-check) ... Contains requirements for *mantra check*
+- [req:analyze](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
+- [req:coverage](5-REQ-coverage) ... Contains requirements about collecting requirement coverage data
+- [req:deprecate](5-REQ-deprecate) ... Contains requirements about handling deprecated requirements
+- [req:extract](5-REQ-extract) ... Contains requirements about extracting requirement IDs
 - [req:filter](5-REQ-filter) ... Contains the requirement to ignore files and folders for referencing
 - [req:qa](5-REQ-qa) ... Contains requirements about general quality assurance
-- [req:ref_req](5-REQ-ref_req) ... Contains the requirement on how to reference requirements
-- [req:release](5-REQ-release) ... Contains the requirements for release artifacts 
+- [req:report](5-REQ-report) ... Contains requirements for reports from collected data
 - [req:req_id](5-REQ-req_id) ... Contains requirements about the requirement ID
-- [req:status](5-REQ-status) ... Contains requirements for *mantra status*
-- [req:sync](5-REQ-sync) ... Contains requirements for *mantra sync*
-- [req:wiki](5-REQ-wiki) ... Contains requirements about the content of the wiki
+- [req:trace](5-REQ-trace) ... Contains requirements about tracing requirements in code
 
 **Important Requirements:**
 
-- [req:ref_req](5-REQ-ref_req) ... Contains the requirement on how to reference requirements
+- [req:analyze](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
+- [req:coverage](5-REQ-coverage) ... Contains requirements about collecting requirement coverage data
 - [req:req_id](5-REQ-req_id) ... Contains requirements about the requirement ID
-- [req:wiki.ref_list](5-REQ-wiki.ref_list) ... Contains requirements about the structure of the *references* list
+- [req:trace](5-REQ-trace) ... Contains requirements about tracing requirements in code
 
-## Requirement ID
+## General requirement structure
 
-IDs help to easily reference requirements.
-Requirement IDs may be grouped to create a hierarchy of requirements.
-IDs of sub-requirements are separated by a dot "." from the parent ID.
-
-**Note:** IDs must not include any whitespace or `-` to keep IDs readable in wiki titles.
-
-**Examples:**
-
-```
-my_req
-my_req.sub_req
-other_req.sub_req.even_lower_req
-```
-
-## Requirement structure
-### General structure
-
-Requirements should have a consistent structure to improve the readability.
-
-If [mantra](https://github.com/mhatzl/mantra) is used for tracing,
-every requirement must start the heading with the ID assigned to the requirement to be able to reference it.
+Every requirement must start the heading with the ID assigned to the requirement to be able to reference it.
 The ID must be wrapped in backticks `` ` ``, to prevent wrongful ID detection.
-
-[mantra](https://github.com/mhatzl/mantra) uses a *references* list to trace requirements between the wiki, implementation, and tests.
-This list is placed by [mantra](https://github.com/mhatzl/mantra) directly below the requirement heading.
-
-**Note:** *References* lists may be manually modified, but must remain directly below the requirement heading.
 
 **Example:**
 
 ```
 # `req_id`: Some title
 
-**References:**
-
-- in branch main: 2
-
-The description of the requirement.
+Some description...
 ```
 
 ## High-level requirements
 
-In addition to the general structure, high-level requirements should contain a section that links to sub-requirements
-that are one level *deeper*. This helps with navigation through the wiki.
+In addition to the general structure, requirements may contain sub-requirements to create a hierarchy of requirements.
+Sub-requirements are created by *dot-like* notation, starting with the ID of the parent requirement.
 
-**Note:** This section should link to sub-requirements independent of their phase, because adapting this section would otherwise be too cumbersome.
-
-**Note:** To keep pages short, sub-requirements should in general be placed in their own files.
+**Note:** The heading level should also be increased.
 
 **Example:**
 
 ```
 # `req_id`: Some title
 
-**References:**
-
-- in branch main: 2
-
 The description of the high-level requirement.
 
-## Sub-requirements
+## `req_id.sub_req`: Sub-requirement title
 
-- [req:req_id.sub_req_1](5-REQ-req_id.sub_req_1) ... Optional description for this requirement
-- [req:req_id.sub_req_2](5-REQ-req_id.sub_req_2) ... Optional description for this requirement
-```
-
-## Adding tests to requirements
-
-Tests may be added to the wiki in the form of sub-requirements.
-However, creating a sub-requirement for each test case may be too tedious.
-In this case it is probably better to create an overall test requirement with `<your_req>.test` as ID.
-This requirement may then contain descriptions for multiple test cases, while only requiring to remember one ID.
-A "Definition of Done" specific to the requirement may then be defined that enforces that all test cases described in the `.test` ID must be fulfilled.
-
-```
-# `req_id`: Some title
-
-**References:**
-
-- in branch main: 12 (2 direct)
-
-The description of the requirement.
-
-## `req_id.test`: Multiple test cases
-
-**References:**
-
-- in branch main: 10
-
-All test cases in this section must be fulfilled.
-
-### Test case 1
-
-Test something...
-
-### Test case 2
-
-Test something else...
+The description of the sub-requirement.
 ```
 
 ## Requirement Phases
@@ -148,77 +79,14 @@ A requirement goes through the following phases:
 
 4. **active** ... When the implementation of a requirement is merged, the requirement gets **active**
 
-   The number of times the requirement is referenced in [mantra](https://github.com/mhatzl/mantra) should be added to the wiki.
-   [mantra](https://github.com/mhatzl/mantra) may be used to achieve this.
-
-   **Example:**
-
-   ```
-   # `my_req`: Some implemented requirement
-   
-   **References:**
-
-   - in branch main: 2
-   ```
-
-   For high-level requirements, the number of references is the sum of all sub-requirement references plus the number the requirement is directly referenced.
-   To see the number of direct references, `(<Number of references> direct)` is added after the overall number.
-
-   **Example:**
-
-   ```
-   # `high_level`: Some implemented high-level requirement
-   
-   **References:**
-
-   - in branch main: 4 (1 direct)
-   ```
-
-   If it is not possible to reference a requirement, `manual` may be set manually instead of the number of references.
-   This marks the requirement as **active**, but requiring manual verification.
-
-   **Example:**
-
-   ```
-   # `my_req`: Requirement that needs manual verification
-   
-   **References:**
-
-   - in branch main: manual
-   ```
-
-   A manually verified requirement may get references in the future.
-   The number of references is then added after the `manual` keyword.
-
-   **Example:**
-
-   ```
-   # `my_req`: Requirement that needs manual verification, but is also referenced in code
-   
-   **References:**
-
-   - in branch main: manual + 3
-   ```
+   [mantra](https://github.com/mhatzl/mantra) may be used during testing to check what requirements are covered through tests.
 
 5. **deprecated** ... If a requirement is replaced or removed by another requirement, the requirement gets **deprecated**.
 
-   Since the requirement might still be **active** in some branches, `deprecated` must be set manually to the branches
-   the requirement is deprecated.
-
-   The requirement should be deleted if the requirement is **deprecated** in all branches, to keep the wiki small.
+   Note that requirements might still be **active** in some projects, but **deprecated** in others.
+   The requirement should be deleted if the requirement is **deprecated** in all projects, to keep the wiki small.
 
    **Note:** A link should be added in the **deprecated** requirement, pointing to the new requirement for better traceability.
-
-   **Example:**
-
-   ```
-   # `my_req`: Got deprecated in latest version
-
-   **References:**
-
-   - in branch main: deprecated
-   - in branch stable: 2
-   ```
 
 ## Definition of Ready
 
