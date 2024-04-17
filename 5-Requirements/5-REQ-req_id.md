@@ -22,3 +22,11 @@ This creates the impression of a *dot-notation* used in many programming languag
 which should improve familiarity for developers.
 
 **Example:** `parent_req.sub_req`
+
+## `req_id.restrictions`: Restrict allowed characters to use for IDs
+
+An ID must not contain the characters `.`, `"`, `` ` ``.
+
+- `.` is used to create requirement hierarchies
+- `"` is used to wrap IDs in traces in case some characters are not allowed in programming languages (see [req(trace.special_chars)])
+- `` ` `` is used to wrap IDs in Wikis based on Markdown syntax (see [req(extract.wiki)])

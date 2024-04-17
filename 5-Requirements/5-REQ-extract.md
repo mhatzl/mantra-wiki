@@ -9,9 +9,9 @@ because only defined requirements may be referenced.
 As a product owner or developer, I want to know where a requirement is defined,
 because more information about the requirement may be found there.
 
-## `extract.github`: Extract requirement IDs defined in GitHub wikis
+## `extract.wiki`: Extract requirement IDs defined in Markdown based wikis
 
-IDs of requirements defined matching the following regular expression must be extracted from GitHub wikis:
+IDs of requirements defined matching the following regular expression must be extracted from the content of a wiki:
 
 ```
 ^#{1,6} `(?<req_id>[^`"]+)`: \S+

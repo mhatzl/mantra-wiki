@@ -36,10 +36,28 @@ If no language specific syntax can be used to trace requirements,
 the following syntax must be used inside comments:
 
 ```
-[req:<requirement ID>]
+[req(<requirement IDs>)]
 ```
 
-**Note:** `<requirement ID>` is used as placeholder for the actual ID to trace.
+**Note:** `<requirement IDs>` is used as placeholder for the actual IDs to trace with IDs being separated by `,`.
+
+**Examples:**
+
+```
+[req(req_id)]
+[req(first_id, second_id)]
+```
+
+## `trace.special_chars`
+
+In case characters that are part of an ID are not allowed as identifiers in a programming language,
+the ID may be wrapped in double quotes `"`. Only the ID part containing the special character(s) must be wrapped.
+
+**Examples:**
+
+```
+[req("special-char-id".sub_id)]
+```
 
 ## `trace.dry_run`: Collect trace data without saving
 
