@@ -25,8 +25,10 @@ which should improve familiarity for developers.
 
 ## `req_id.restrictions`: Restrict allowed characters to use for IDs
 
-An ID must not contain the characters `.`, `"`, `` ` ``.
+An ID must not contain the characters `.`, `"`, `,`, `` ` ``, `[`, `]`, `(`, `)`, `{`, `}`.
 
 - `.` is used to create requirement hierarchies
 - `"` is used to wrap IDs in traces in case some characters are not allowed in programming languages (see [req(trace.special_chars)])
+- `,` is used to set multiple IDs in one trace (see [req(trace.detect)])
 - `` ` `` is used to wrap IDs in Wikis based on Markdown syntax (see [req(extract.wiki)])
+- Grouping characters `[`, `]`, `(`, `)`, `{`, `}` would interfere with trace syntax (see [req(trace.detect)])

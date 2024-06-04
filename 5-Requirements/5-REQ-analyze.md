@@ -16,7 +16,7 @@ Required checks are added as sub-requirements to this requirement.
 
 ### `analyze.validate.traces`: Traced requirements exist
 
-All traces point to existing requirements and repositories.
+All traces point to existing requirements.
 
 ### `analyze.validate.coverage`: Coverage entries point to traces
 
@@ -24,11 +24,11 @@ All coverage entries point to existing traces with matching requirement IDs.
 
 ### `analyze.validate.deprecated`: Requirements marked as deprecated exist 
 
-All deprecated requirements point to existing requirements and repositories.
+All deprecated requirements point to existing requirements.
 
-### `analyze.validate.manual`: Manual traces point to existing requirements
+### `analyze.validate.manual`: Manual reviews point to existing requirements
 
-All manually traced requirements point to existing requirements and repositories.
+All manually verified requirements point to existing requirements.
 
 ## `analyze.custom`: Allow custom queries for analyzation
 

@@ -3,15 +3,11 @@
 As a product owner, I want to be able to generate various reports that show the states of existing requirements,
 because these reports help to track project development.
 
-## `report.compact`: Keep reports compact
+## `report.custom`: Custom reports
 
-As a product owner, I want to have small reports that show the most important information at high level,
-because I do not want to read 100+ pages every release.
-However, I want to be able to get more details manually if I need to.
-
-To keep the report compact, it should only list the requirement title, and link to the origin of the requirement.
-The link to the origin should be an optional argument, because it might not be accessible outside an organization.
-
+*mantra* is not able to know what information is relevant for projects.
+Therefore, *mantra* should provide a way to create custom reports using information collected by *mantra*.
+Enough information should be provided by *mantra* per default, so most reports may be created using simple templates.
 
 ## `report.release`: Release report
 
@@ -29,13 +25,13 @@ because I can show this report to stakeholders as kind of release artifact.
 
 Created in response to [issue #3](https://github.com/mhatzl/mantra/issues/3).
 
-## `report.checklist`: Checklist for *untraceable* requirements
+## `report.checklist`: Checklist for requirements requiring manual verification
 
-As a product owner, I want that mantra generates a checklist that contains all requirements that are *untraceable*,
+As a product owner, I want that mantra generates a checklist that contains all requirements that require manual verification,
 because I want to make sure that all of those requirements are verified before a release is published.
 
 **Note:** Because high-level requirements may be *traceable*, but some sub-requirements might **not** be,
-the list should be flattened, and only *untraceable* requirements should be included in the list.
+the list should be flattened, and only *manual* requirements should be included in the list.
 
 **Example:**
 
@@ -48,3 +44,10 @@ the list should be flattened, and only *untraceable* requirements should be incl
 
 Created in response to [issue #5](https://github.com/mhatzl/mantra/issues/5).
 
+## `report.req_snapshot`: 
+
+Requirement content may change during development, even though the ID remains the same.
+Because reports do not include the whole content of a requirement,
+it is necessary to specify a *tag* that identifies a snapshot of the requirements
+for which the report was generated.
+Otherwise, it is not clear if the requirement content got changed since the report was generated.

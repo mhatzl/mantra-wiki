@@ -26,7 +26,7 @@ Running pipeline steps in a defined sequence prevents unnecessary checks, which 
 
 `cargo clippy` is used to as linter to ensure good code quality.
 
-### `qa.pipeline.3_build`: Ensure *evident* builds
+### `qa.pipeline.3_build`: Ensure *mantra* builds
 
 `cargo build` is used to ensure that the code still compiles.
 

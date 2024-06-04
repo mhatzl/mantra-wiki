@@ -21,3 +21,8 @@ IDs of requirements defined matching the following regular expression must be ex
 
 Atlassian Jira is a widely used project management tool.
 For *mantra* to be used by companies, it must be possible to extract requirement IDs from Jira.
+
+## `extract.custom`: Extract requirement IDs from JSON
+
+There are various project management tools, and it is infeasible to implement extractors for each one.
+Therefore, a JSON schema must be defined to which tools can export to.

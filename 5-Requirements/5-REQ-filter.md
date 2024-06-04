@@ -1,6 +1,6 @@
-# `filter`: Use ignore files to restrict the search for references
+# `filter`: Use ignore files to restrict the search for traces
 
-Many repositories contain files and folders that should be ignored when searching for references.
+Many repositories contain files and folders that should be ignored when searching for traces.
 e.g. build outputs, git folder, ...
 
 Most projects already use `.gitignore` files to exclude those files and folders.
@@ -9,6 +9,6 @@ Additionally, mantra must offer `.ignore` files to specify files and folders tha
 
 Besides `.ignore`, it must also be possible to use `.mantraignore` files to be more strict with ignores for mantra.
 
-**Note:** The `.git` folder is always ignored, because it cannot hold valid references.
+**Note:** The `.git` folder is always ignored, because it cannot hold valid traces.
 
 Created in response to [issue #19](https://github.com/mhatzl/mantra/issues/19).

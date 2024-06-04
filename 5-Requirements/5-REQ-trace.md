@@ -17,8 +17,8 @@ This information helps developers with project navigation and is needed for *cov
 ## `trace.untraceable`: Untraceable requirements
 
 Some requirements cannot be traced, because there is no related artifact a trace could be applied to.
-Therefore, it must be possible to specify requirements that need to be traced *manually*.
-The required action for *manually* traced requirements may vary between projects.
+Therefore, it must be possible to specify requirements that need to be verified *manually*.
+The required action for *manually* verified requirements may vary between projects.
 
 ## `trace.multiple`: Trace more than one requirement at same origin
 
@@ -64,3 +64,17 @@ the ID may be wrapped in double quotes `"`. Only the ID part containing the spec
 As a developer, I want to see the impact of a code change to the trace data,
 before merging these changes, because this helps to identify if all needed changes were done,
 or some were wrongfully introduced.
+
+## `trace.span`: Optional span of a trace
+
+A trace set on a code block in a programming language affects all lines of the code block.
+This code block line span must be stored in *mantra* to connect code coverage data with traces.
+
+**Example:**
+
+```rust
+#[req(spanning_trace)]
+fn some_fn() {
+    // ...
+}
+```
