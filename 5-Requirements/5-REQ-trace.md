@@ -3,7 +3,9 @@
 Tracing requirements down to code level provides better overview of the project status,
 and helps with impact analysis. It is also mandatory to achieve certain certifications.
 
-Only traces at code level are considered, because traces between requirements are already covered by most project management tools.
+Focus is on traces between requirements and code,
+but a requirement hierarchy may be passed to *mantra*
+to detect transitive relations between requirements and artifacts.
 
 ## `trace.id`: Use the requirement ID for traces
 
@@ -48,6 +50,12 @@ the following syntax must be used inside comments:
 [req(first_id, second_id)]
 ```
 
+## `trace.extern`: Add external traces
+
+It must be possible to add external traces to *mantra*, because annotations in code
+might not be possible.
+e.g. In case code was already certified before, adding annotations would change the code, which would require re-certification. 
+
 ## `trace.special_chars`
 
 In case characters that are part of an ID are not allowed as identifiers in a programming language,
@@ -65,12 +73,30 @@ As a developer, I want to see the impact of a code change to the trace data,
 before merging these changes, because this helps to identify if all needed changes were done,
 or some were wrongfully introduced.
 
-## `trace.span`: Optional span of a trace
+## `trace.ident`: Optional associated identifier of a trace
+
+A trace set in a programming language may be linked to an item.
+An identifier that uniquely identifies this item may be stored together
+with the trace to improve the readability of the traceability report,
+and to improve static coverage analysis.
+
+**Example:**
+
+```rust
+#[req(spanning_trace)]
+fn some_fn() {
+    // ...
+}
+```
+
+## `trace.span`: Optional associated span of a trace
 
 A trace set on a code block in a programming language affects all lines of the code block.
 This code block line span must be stored in *mantra* to connect code coverage data with traces.
 
 **Example:**
+
+The trace spans all three lines of the `some_fn` function.
 
 ```rust
 #[req(spanning_trace)]

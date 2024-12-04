@@ -12,6 +12,9 @@ because this provides an overview of the project state.
 It must be ensured that the collected trace and coverage data is valid,
 because reliable data is required for any useful analysis.
 
+If a trace, coverage, or review contains invalid information, it must be stored in *mantra* separately to valid content, because the data must not be considered to
+detect the state of a requirement, but the data should still be available for inspection.
+
 Required checks are added as sub-requirements to this requirement.
 
 ### `analyze.validate.traces`: Traced requirements exist

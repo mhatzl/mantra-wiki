@@ -4,22 +4,25 @@ This section contains requirements for the system.
 
 **High-Level Requirements:**
 
-- [req:analyze](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
-- [req:coverage](5-REQ-coverage) ... Contains requirements about collecting requirement coverage data
-- [req:deprecate](5-REQ-deprecate) ... Contains requirements about handling deprecated requirements
-- [req:extract](5-REQ-extract) ... Contains requirements about extracting requirement IDs
-- [req:filter](5-REQ-filter) ... Contains the requirement to ignore files and folders for referencing
-- [req:qa](5-REQ-qa) ... Contains requirements about general quality assurance
-- [req:report](5-REQ-report) ... Contains requirements for reports from collected data
-- [req:req_id](5-REQ-req_id) ... Contains requirements about the requirement ID
-- [req:trace](5-REQ-trace) ... Contains requirements about tracing requirements in code
+- [req(analyze)](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
+- [req(cli)](5-REQ-cli) ... Contains requirements about *mantra*'s CLI
+- [req(coverage)](5-REQ-coverage) ... Contains requirements about collecting requirement coverage data
+- [req(deprecate)](5-REQ-deprecate) ... Contains requirements about handling deprecated requirements
+- [req(extract)](5-REQ-extract) ... Contains requirements about extracting requirement IDs
+- [req(filter)](5-REQ-filter) ... Contains the requirement to ignore files and folders for referencing
+- [req(hierarchy)](5-REQ-hierarchy) ... Contains requirements about an optional requirements hierarchy
+- [req(manual)](5-REQ-manual) ... Contains requirements to mark requirements for manual verification
+- [req(qa)](5-REQ-qa) ... Contains requirements about general quality assurance
+- [req(report)](5-REQ-report) ... Contains requirements for reports from collected data
+- [req(req_id)](5-REQ-req_id) ... Contains requirements about the requirement ID
+- [req(trace)](5-REQ-trace) ... Contains requirements about tracing requirements in code
 
 **Important Requirements:**
 
-- [req:analyze](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
-- [req:coverage](5-REQ-coverage) ... Contains requirements about collecting requirement coverage data
-- [req:req_id](5-REQ-req_id) ... Contains requirements about the requirement ID
-- [req:trace](5-REQ-trace) ... Contains requirements about tracing requirements in code
+- [req(analyze)](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
+- [req(coverage)](5-REQ-coverage) ... Contains requirements about collecting requirement coverage data
+- [req(req_id)](5-REQ-req_id) ... Contains requirements about the requirement ID
+- [req(trace)](5-REQ-trace) ... Contains requirements about tracing requirements in code
 
 ## General requirement structure
 
@@ -97,7 +100,7 @@ A requirement may be considered **ready** if it fulfills the following statement
   - It is clear where the requirement must be placed in the wiki
   - The ID for the requirement is decided and unique in the wiki
   - All currently raised concerns by stakeholders are resolved
-  - Active quality assurance requirements were considered (see [req:qa](5-REQ-qa))
+  - Active quality assurance requirements were considered (see [req(qa)](5-REQ-qa))
 
 - **For high-level requirements:**
 

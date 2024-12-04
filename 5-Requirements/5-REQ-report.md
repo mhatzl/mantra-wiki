@@ -9,21 +9,13 @@ because these reports help to track project development.
 Therefore, *mantra* should provide a way to create custom reports using information collected by *mantra*.
 Enough information should be provided by *mantra* per default, so most reports may be created using simple templates.
 
-## `report.release`: Release report
-
-As a product owner, I want to get a report of all *active* requirements for a given project and branch,
-because I can show this report to stakeholders as kind of release artifact.
-
-**Example:**
-
-```
-***Active* requirements in release v1.1.0:**
-
-- req_id: High-lvl requirement ([requirement origin](URL))
-  - req_id.sub_req: Sub-lvl requireent ([sub-req origin](URL))
-```
-
 Created in response to [issue #3](https://github.com/mhatzl/mantra/issues/3).
+
+## `report.default`: Default report
+
+A default report must be integrated into *mantra*, so users must not create
+their own template.
+The default report should cover most requested use cases of a traceability report.
 
 ## `report.checklist`: Checklist for requirements requiring manual verification
 
