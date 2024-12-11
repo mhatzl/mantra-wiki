@@ -1,7 +1,16 @@
 # `coverage`: Collect coverage data for traces
 
-As a product owner, I want to ensure that implemented requirements are tested,
-because this helps with certification and improves software quality.
+As a product owner, I want to ensure that implemented requirements are covered by tests,
+because this is required by safety-critical standards and improves software quality.
+
+## `coverage.traces`: Store information about covered traces
+
+- **Related Requirements**: [req(coverage.lines)], [req(trace.span)]
+
+It must be possible to store information about which trace was covered by a specific test case or test-run,
+because this information is important to get the requirement coverage.
+
+**Note:** This information may be inferred by combining trace span and line coverage information.
 
 ## `coverage.lines`: Store line coverage data
 

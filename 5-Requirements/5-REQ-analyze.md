@@ -2,7 +2,7 @@
 
 The collected traces and coverage data may be used to analyze various aspects of a project.
 
-## `analyze.not_implemented`: List requirements that are not yet implemented
+## `analyze.unimplemented`: List requirements that are not yet implemented
 
 As a project manager, I want to be able to see a list of requirements that are not yet implemented,
 because this provides an overview of the project state.
@@ -25,11 +25,14 @@ All traces point to existing requirements.
 
 All coverage entries point to existing traces with matching requirement IDs.
 
-### `analyze.validate.deprecated`: Requirements marked as deprecated exist 
+### `analyze.validate.deprecated`: Deprecated requirements must not be in use
 
-All deprecated requirements point to existing requirements.
+Deprecated requirements must not be used in a project. This means that deprecated requirements
+must not be referenced by any traces, coverage, or reviews. 
 
-### `analyze.validate.manual`: Manual reviews point to existing requirements
+### `analyze.validate.verify`: Verified requirements point to existing requirements
+
+- **Parents:** `analyze.validate`, `review.verify_req`
 
 All manually verified requirements point to existing requirements.
 

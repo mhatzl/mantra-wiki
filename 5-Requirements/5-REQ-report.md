@@ -22,7 +22,9 @@ The default report should cover most requested use cases of a traceability repor
 As a product owner, I want that mantra generates a checklist that contains all requirements that require manual verification,
 because I want to make sure that all of those requirements are verified before a release is published.
 
-**Note:** Because high-level requirements may be *traceable*, but some sub-requirements might **not** be,
+**Implementation Details:**
+
+Because high-level requirements may be *traceable*, but some sub-requirements might **not** be,
 the list should be flattened, and only *manual* requirements should be included in the list.
 
 **Example:**

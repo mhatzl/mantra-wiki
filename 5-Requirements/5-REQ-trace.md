@@ -16,26 +16,19 @@ The requirement ID must be used for tracing, because the ID uniquely identifies 
 To know where a trace is located, the file path and line number must be stored.
 This information helps developers with project navigation and is needed for *coverage* analysis.
 
-## `trace.untraceable`: Untraceable requirements
-
-Some requirements cannot be traced, because there is no related artifact a trace could be applied to.
-Therefore, it must be possible to specify requirements that need to be verified *manually*.
-The required action for *manually* verified requirements may vary between projects.
-
 ## `trace.multiple`: Trace more than one requirement at same origin
 
 More than one requirement may affect the same code.
 Therefore, it must be possible to specify more than one requirement at the same origin.
 
-## `trace.detect`: How to detect traces
+## `trace.collect`: Collect requirements traces
 
-Only traces intended by developers must be detected, because falsely detected traces
-result in unreliable trace data.
-Therefore, traces found in commented code must be ignored,
-and language syntax should be used to further restrict trace detection.
+It must be possible to collect requirements traces.
 
-If no language specific syntax can be used to trace requirements,
-the following syntax must be used inside comments:
+### `trace.collect.general`: Collect traces from text-based files
+
+If no language specific feature is defined to trace requirements for a text-based file,
+the following pattern must be detected:
 
 ```
 [req(<requirement IDs>)]
@@ -50,7 +43,37 @@ the following syntax must be used inside comments:
 [req(first_id, second_id)]
 ```
 
-## `trace.extern`: Add external traces
+### `trace.collect.ast`: Collect traces from an abstract syntax tree
+
+An AST should be used to restrict trace detection for programming languages.
+
+**Rationale:**
+
+Only requirements traces intended by developers should be detected, because falsely detected traces
+result in unreliable trace data.
+Therefore, traces found in commented code should be ignored,
+and language features should be used to further restrict trace detection.
+
+#### `trace.collect.ast.rust`: Collect traces from Rust code
+
+The following patterns must be recognized as requirements trace in Rust code:
+
+```rust
+#[req(some_id)]
+fn foo() {}
+```
+
+```rust
+#[requirements(some_id)]
+fn foo() {}
+```
+
+```rust
+#[mod_path::req(some_id)]
+fn foo() {}
+```
+
+### `trace.collect.extern`: Add external traces
 
 It must be possible to add external traces to *mantra*, because annotations in code
 might not be possible.

@@ -7,21 +7,18 @@ This section contains requirements for the system.
 - [req(analyze)](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
 - [req(cli)](5-REQ-cli) ... Contains requirements about *mantra*'s CLI
 - [req(coverage)](5-REQ-coverage) ... Contains requirements about collecting requirement coverage data
-- [req(deprecate)](5-REQ-deprecate) ... Contains requirements about handling deprecated requirements
-- [req(extract)](5-REQ-extract) ... Contains requirements about extracting requirement IDs
 - [req(filter)](5-REQ-filter) ... Contains the requirement to ignore files and folders for referencing
-- [req(hierarchy)](5-REQ-hierarchy) ... Contains requirements about an optional requirements hierarchy
-- [req(manual)](5-REQ-manual) ... Contains requirements to mark requirements for manual verification
 - [req(qa)](5-REQ-qa) ... Contains requirements about general quality assurance
 - [req(report)](5-REQ-report) ... Contains requirements for reports from collected data
-- [req(req_id)](5-REQ-req_id) ... Contains requirements about the requirement ID
+- [req(requirement)](5-REQ-requirement) ... Contains requirements about storing requirement information
+- [req(safety)](5-REQ-safety) ... Contains requirements about safety-critical aspects for *mantra*
 - [req(trace)](5-REQ-trace) ... Contains requirements about tracing requirements in code
 
 **Important Requirements:**
 
 - [req(analyze)](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
 - [req(coverage)](5-REQ-coverage) ... Contains requirements about collecting requirement coverage data
-- [req(req_id)](5-REQ-req_id) ... Contains requirements about the requirement ID
+- [req(req.id)](5-REQ-requirement) ... Contains requirements about the requirement ID
 - [req(trace)](5-REQ-trace) ... Contains requirements about tracing requirements in code
 
 ## General requirement structure
