@@ -9,7 +9,7 @@ jobs:
   sync-wikis:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           # PAT with repo & workflow permission
           token: ${{ secrets.MANTRA_WIKI_SYNC }}

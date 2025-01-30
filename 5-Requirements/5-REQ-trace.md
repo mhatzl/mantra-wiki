@@ -73,6 +73,18 @@ fn foo() {}
 fn foo() {}
 ```
 
+```rust
+fn foo() {
+    reqcov!(some_id)
+}
+```
+
+```rust
+fn foo() {
+    mod_path::reqcov!(some_id)
+}
+```
+
 ### `trace.collect.extern`: Add external traces
 
 It must be possible to add external traces to *mantra*, because annotations in code

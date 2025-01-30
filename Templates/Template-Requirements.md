@@ -1,5 +1,8 @@
+# `<Requirement ID>`: Requirement Title
+
 {{
 
-Template on how to structure and write a single requirement.
+Optional body containing a detailed description of the requirement,
+and possible related sub-requirements.
 
 }}

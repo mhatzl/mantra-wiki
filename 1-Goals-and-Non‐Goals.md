@@ -1,19 +1,14 @@
 ## Goals
 
-{{
-
-List the high-level goals of the system.
-
-These high-level goals should be used to create high-level requirements.
-
-}}
+- **Trace Requirements in Code**
+- **Get Requirements Coverage through Tests**
+- **Show Results in generated Reports**
+- **Help with safety-critical Certification**
+- **Open-source Framework**
+- **Easy to use**
+- **Extensible** 
 
 ## Non-Goals
 
-{{
-
-List non-goals of the system.
-
-Non-goals help to define the scope of the system.
-
-}}
+- **Fully fledged Requirements Management System**
+- **Test Framework**

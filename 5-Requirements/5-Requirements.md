@@ -7,6 +7,7 @@ This section contains requirements for the system.
 - [req(analyze)](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
 - [req(cli)](5-REQ-cli) ... Contains requirements about *mantra*'s CLI
 - [req(coverage)](5-REQ-coverage) ... Contains requirements about collecting requirement coverage data
+- [req(exchange)](5-REQ-exchange) ... Contains requirements about exchanging information with external tools 
 - [req(filter)](5-REQ-filter) ... Contains the requirement to ignore files and folders for referencing
 - [req(qa)](5-REQ-qa) ... Contains requirements about general quality assurance
 - [req(report)](5-REQ-report) ... Contains requirements for reports from collected data

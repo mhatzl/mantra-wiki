@@ -14,8 +14,4 @@ Development-Wiki for [mantra](https://github.com/mhatzl/mantra).
 
 # Introduction
 
-{{
-  
-Give a short introduction about the system.
-
-}}
+This wiki contains developer related information about [mantra](https://github.com/mhatzl/mantra).
