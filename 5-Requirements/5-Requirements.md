@@ -26,6 +26,7 @@ This section contains requirements for the system.
 
 Every requirement must start the heading with the ID assigned to the requirement to be able to reference it.
 The ID must be wrapped in backticks `` ` ``, to prevent wrongful ID detection.
+See [req.collect.wiki](/5-REQ-requirement) for the full specification.
 
 **Example:**
 

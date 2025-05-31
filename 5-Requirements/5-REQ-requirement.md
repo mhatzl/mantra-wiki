@@ -52,7 +52,18 @@ e.g. API-Authentication may affect multiple routes.
 
 - **Parents:** [`req.hierarchy.mult_partens`, `req.properties.wiki`]
 
-TODO: explain in more detail
+Multiple parents may be specified using the key `Parents` in the property list.
+The key is case insensitive and must allow the case insensitive alias `Parent`.
+
+The value must be a comma-separated list of requirement IDs that is enclosed in square brackets.
+Each ID in the list must either be enclosed in verbatim ticks, or given as Markdown hyperlink
+where the text content only consists of the requirement ID which must be enclosed in verbatim ticks.
+
+**Example:**
+
+```
+Parents: [`req.hierarchy.mult_parents`, [`req.properties.wiki`](<link to requirement>)]
+```
 
 ### `req.hierarchy.no_circle`: Prevent circular hierarchies
 
@@ -61,7 +72,43 @@ A requirement hierarchy must not contain circles, because this would break trans
 ## `req.origin`: Save the origin of a requirement
 
 As a product owner or developer, I want to know where a requirement is defined,
-because more information about the requirement may be found there.
+in case I want to modify the requirement, or find out more about it.
+
+### `req.origin.wiki`: Origin of a requirement in the Markdown wiki format
+
+- **Parents:** [`req.origin`, `req.collect.wiki`]
+
+The origin of a requirement in a Markdown wiki is defined as follows:
+
+- Filepath relative from the root directory set in `mantra.toml` to the Markdown file that defines the requirement
+- Line number of the first line of the heading that defines the requirement
+- **Optional:** Prefix set in `mantra.toml` that is added to the relative filepath
+
+#### `req.origin.wiki.github`: Origin-URL of a requirement for GitHub wiki
+
+Due to GitHub wiki treating every file in the wiki as a top-level page independent of the folder structure,
+the origin filepath might not correctly point to a requirement in the hosted wiki on GitHub.
+Therefore, *mantra* must construct and store this URL in addition to the actual origin information.
+
+An additional optional prefix must available in the `mantra.toml` file that points
+to base URL of the rendered wiki.
+
+**Warn:** New GitHub wiki versions might change this behavior.
+
+### `req.origin.extern`: Origin of a requirement using external sources
+
+- **Parents:** [`req.origin`, `req.collect.extern`]
+
+Many requirements management tools are either web-based or provide a service that links a URI to a requirement.
+Therefore, *mantra* must allow to store a URI as origin for externally defined requirements.
+
+## `req.title`: Save the title of a requirement
+
+- **Parents:** [`req`, `report`, `safety.change`]
+
+The title of a requirement must be stored in *mantra*,
+because it likely provides a better overview compared to the ID of a requirement,
+but is shorter than the description.
 
 ## `req.description`: Save the description of a requirement
 
@@ -100,13 +147,14 @@ because only collected requirements can be linked to other artifacts.
 
 ### `req.collect.wiki`: Collect requirements defined in Markdown based wikis
 
-- **Parents:** [`req.collect`, `req.id`, `req.properties`, `req.origin`, `req.description`, `qa.ux`]
+- **Parents:** [`req.collect`, `req.id`, `req.properties`, `req.title`, `req.description`, `qa.ux`]
 
 A simple Markdown based approach to define requirements must be supported,
 to prevent the need for additional tools to define and manage requirements.
 One Markdown file should allow to define multiple requirements,
 to prevent the creation of many files containing only a few sentences,
 which would likely lead to worse project navigation.
+The approach must also allow to set the same information that may be given in the `exchange.requirements.schema`, to serve as a proper alternative to external requirements management tools.
 
 Markdown is chosen, because it is a well-known and simple markup language.
 
@@ -138,11 +186,18 @@ This is another requirement description.
 
 ### `req.collect.extern`: Collect requirements from external sources
 
-There are various project management tools, and it is infeasible to implement collectors for each one.
-Therefore, a JSON schema must be defined to which tools can export to.
+- **Parents:** [`req.collect`, `exchange.requirements.schema`]
 
-Besides JSON, the schema should also be usable for formats such as YAML, TOML, RON (Rust Object Notation),
-because they are similar to JSON and might be preferred by some users.
+Collect externally defined requirements from files that adhere to the schema defined in `exchange.requirements.schema`.
+
+*mantra* must be able to collect external requirements from the following file formats:
+
+- JSON
+
+*mantra* may support to collect external requirements from the following file formats:
+
+- RON (Rust Object Notation)
+- TOML
 
 ## `req.manual`: Mark requirements to require manual verification
 
@@ -159,7 +214,7 @@ It must be possible to mark requirements to require manual verification in the M
 **Implementation Details:**
 
 The case insensitive key `Manuel Verification` may be used to mark requirements to require manual verification
-using `true` or `false` as values.
+using case insensitive `true` or `false` as values.
 
 **Note:** `Manuel Verification` is quite long, so offer `Manual` as an alternative.
 
@@ -191,6 +246,9 @@ It must be possible to deprecate requirements, because they might be outdated or
 It must be possible to mark requirements as deprecated in the Markdown wiki format.
 
 **Implementation Details:**
+
+The case insensitive key `Deprecated` may be used to mark requirements as deprecated
+using case insensitive `true` or `false` as values.
 
 ```
 # `req_id`: Some Requirement
