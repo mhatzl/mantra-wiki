@@ -7,7 +7,7 @@ This section contains requirements for the system.
 - [req(analyze)](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
 - [req(cli)](5-REQ-cli) ... Contains requirements about *mantra*'s CLI
 - [req(coverage)](5-REQ-coverage) ... Contains requirements about collecting requirement coverage data
-- [req(exchange)](5-REQ-exchange) ... Contains requirements about exchanging information with external tools 
+- [req(exchange)](5-REQ-exchange) ... Contains requirements about exchanging information with external tools
 - [req(filter)](5-REQ-filter) ... Contains the requirement to ignore files and folders for referencing
 - [req(qa)](5-REQ-qa) ... Contains requirements about general quality assurance
 - [req(report)](5-REQ-report) ... Contains requirements for reports from collected data
@@ -38,7 +38,7 @@ Some description...
 ## High-level requirements
 
 In addition to the general structure, requirements may contain sub-requirements to create a hierarchy of requirements.
-Sub-requirements are created by *dot-like* notation, starting with the ID of the parent requirement.
+Sub-requirements may be created by *dot-like* notation, starting with the ID of the parent requirement.
 
 **Note:** The heading level should also be increased.
 
@@ -52,6 +52,19 @@ The description of the high-level requirement.
 ## `req_id.sub_req`: Sub-requirement title
 
 The description of the sub-requirement.
+```
+
+In addition, IDs of parent requirements may be stated in the property section of the requirement.
+This allows to add multiple parent requirements.
+
+**Example:**
+
+```
+# `req_id`: Some title
+
+- **Parents:** [`parent_1`, [`parent_2`](#link-to-parent-2)]
+
+The description of the requirement that has two parent requirements.
 ```
 
 ## Requirement Phases
@@ -78,11 +91,16 @@ A requirement goes through the following phases:
    A **declined** requirement must be removed from the wiki if it already exists.
    This keeps the wiki small, and focused to implemented or *soon-to-be implemented* requirements.
 
-4. **active** ... When the implementation of a requirement is merged, the requirement gets **active**
+4. **traced** ... When a requirement has at least one trace to an artifact like a code or configuration file, the requirement gets **traced**
 
-   [mantra](https://github.com/mhatzl/mantra) may be used during testing to check what requirements are covered through tests.
+   [mantra](https://github.com/mhatzl/mantra) may be used to automate tracing of requirements.
 
-5. **deprecated** ... If a requirement is replaced or removed by another requirement, the requirement gets **deprecated**.
+5. **covered** ... If at least one test case exists that covers one or more traces of a requirement, the requirement gets **covered**
+
+   Statement coverage may be collected during test execution to automate the detection of covered requirements.
+   By default, covering one line that is linked to a trace of a requirement is enough to consider the requirement **covered**, but more strict criteria may be defined on a project by project basis.
+
+6. **Optional: deprecated** ... If a requirement is replaced or removed by another requirement, the requirement gets **deprecated**
 
    Note that requirements might still be **active** in some projects, but **deprecated** in others.
    The requirement should be deleted if the requirement is **deprecated** in all projects, to keep the wiki small.
@@ -102,14 +120,17 @@ A requirement may be considered **ready** if it fulfills the following statement
 
 - **For high-level requirements:**
 
-  - The intent of the requirement is covered by the existing sub-requirements 
-  - All sub-requirements fulfill their Definition of Ready
+  In general, it is difficult to state if a high-level requirement is **ready**,
+  because it is mostly implicitly defined by its sub-requirements.
 
-  **Note:** If the requirement does not fulfill these statements, try refining existing sub-requirements, or create additional ones.
+  As a guideline, consider the following statements to determine if a high-level requirement is **ready**:
+
+  - The intent of the requirement is covered by existing sub-requirements
+  - All sub-requirements fulfill their Definition of Ready
 
 - **For low-level requirements:**
 
   - At least one developer understands how to implement it
-  - Implementation is estimated to take less than two weeks for one developer
+  - The scope of the requirement is small enough that only few traces to artifacts are needed
 
-  **Note:** If the requirement does not fulfill these statements, consider creating sub-requirements for it. 
+  **Note:** If the requirement does not fulfill these statements, consider creating sub-requirements for it.
