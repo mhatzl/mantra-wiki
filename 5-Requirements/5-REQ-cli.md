@@ -18,6 +18,12 @@ should be used for configuration.
 It should be possible to specify metadata such as the project name, version, and link in `mantra.toml`,
 because this information does not frequently change, but is needed by some CLI commands such as `report`.
 
+## `cli.collect.dry_run`: Collect data without saving
+
+As a developer, I want to see the impact of introduced changes to the traceability data,
+before merging these changes, because this helps to identify if all needed changes were done,
+or some were wrongfully introduced.
+
 ## `cli.report`: Command to create (custom) reports
 
 - **Parents:** `cli`, `report`
@@ -35,4 +41,3 @@ A `validate` command must be available to validate collected date via CLI.
 - **Parents:** `cli`, `analyze.custom`
 
 A `query` command must be available to analyze collected date via CLI.
-

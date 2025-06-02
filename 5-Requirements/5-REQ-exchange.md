@@ -36,7 +36,17 @@ The schema must be able to represent the following information per requirement:
 ## `exchange.traces`: Exchange requirement traces
 
 As a user, I want to be able to add or retrieve requirements traces to or from *mantra*,
-because traces are either collected externally, or are used in a later project analysis tool.
+because traces are either collected externally, or are used in other project analysis tools.
+
+### `exchange.traces.schema`: Schema to exchange trace information
+
+- **Parents:** [`exchange.traces`, `trace.id`, `trace.origin`, `trace.multiple`, `trace.element`]
+
+The schema must be able to represent the following information:
+
+- The filepath and line number of each trace
+- The requirement IDs a trace references
+- Optional: The ident, type, and line span of the element that is linked to the trace
 
 ## `exchange.coverage`: Exchange code coverage and test information
 
