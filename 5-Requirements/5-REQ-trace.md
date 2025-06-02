@@ -30,7 +30,20 @@ It must be possible to collect requirements traces at least manually and semi-au
 because automated collection is not always possible.
 Nevertheless, to improve the usability of *mantra*, trace collection should be automated as much as possible.
 
-### `trace.collect.general`: Collect traces from text-based files
+### `trace.collect.auto.filter`: Use ignore files to restrict the search for traces
+
+Many repositories contain files and folders that should be ignored when searching for traces.
+e.g. build outputs, git folder, ...
+
+Most projects already use `.gitignore` files to exclude those files and folders.
+Therefore, mantra must adhere to settings of a `.gitignore` file that is found in the current or parent directories of a repository.
+Additionally, mantra must offer `.ignore` files to specify files and folders that must be ignored in addition to the `.gitignore` file.
+
+Besides `.ignore`, it must also be possible to use `.traceignore` files to be more strict with ignores for mantra, when searching for traces.
+
+**Note:** The `.git` folder must always be ignored, because it cannot hold valid traces.
+
+### `trace.collect.auto.general`: Collect traces from text-based files
 
 If no language specific feature is defined to trace requirements for a text-based file,
 the following pattern must be detected:
@@ -48,7 +61,7 @@ the following pattern must be detected:
 [req(first_id, second_id)]
 ```
 
-### `trace.collect.ast`: Collect traces from an abstract syntax tree
+### `trace.collect.auto.ast`: Collect traces from an abstract syntax tree
 
 **Parents:** [`trace.collect`, `trace.element`]
 
@@ -61,7 +74,7 @@ result in unreliable trace data.
 Therefore, traces found in commented code should be ignored,
 and language features should be used to further restrict trace detection.
 
-#### `trace.collect.ast.rust`: Collect traces from Rust code
+#### `trace.collect.auto.ast.rust`: Collect traces from Rust code
 
 **Note:** `<requirement IDs>` is used below as placeholder for the actual IDs to trace with IDs being separated by `,` and optional whitespace characters.
 
