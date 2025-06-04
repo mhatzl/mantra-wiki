@@ -65,9 +65,9 @@ where the text content only consists of the requirement ID which must be enclose
 Parents: [`req.hierarchy.mult_parents`, [`req.properties.wiki`](<link to requirement>)]
 ```
 
-### `req.hierarchy.no_circle`: Prevent circular hierarchies
+### `req.hierarchy.no_cycle`: Prevent cyclical hierarchies
 
-A requirement hierarchy must not contain circles, because this would break transitive relations.
+A requirement hierarchy must not contain cycles, because this would break transitive relations.
 
 ## `req.origin`: Save the origin of a requirement
 

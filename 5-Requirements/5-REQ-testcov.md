@@ -17,6 +17,25 @@ The test-run metadata is programming language, domain, and company specific,
 so it must be possible to store arbitrary information in *mantra*,
 but still be able to access the data for the report generation.
 
+### `testcov.test_run.nested`: Allow nested test runs
+
+- **Parents:** [`testcov.test_run`, `exchange.testcov.test.junit`]
+
+It must be possible to build a hierarchy of test-runs, because well-supported formats like JUnit
+allow nested test suites and *mantra* must be able to exchange test data that adheres to the JUnit format.
+
+The number of test cases of a test run must be the sum of all test cases directly linked to the test run
+plus the number of test cases of all nested test runs.
+
+**Implementation Details:**
+
+Nested test runs are handled similar to the requirements hierarchy,
+by having a test run hierarchy table.
+
+#### `testcov.test_run.nested.no_cycle`: Prevent cyclical dependencies in nested test runs
+
+Cyclical dependencies between test runs must not be allowed and must be prevented in *mantra* internally.
+
 ## `testcov.test_case`: Store test case data
 
 The information if a test case was executed successfully, failed, or skipped must be stored

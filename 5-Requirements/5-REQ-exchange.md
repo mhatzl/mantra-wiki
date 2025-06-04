@@ -35,6 +35,8 @@ The schema must be able to represent the following information per requirement:
 
 ## `exchange.traces`: Exchange requirement traces
 
+- **Parents:** [`exchange`, `trace`]
+
 As a user, I want to be able to add or retrieve requirements traces to or from *mantra*,
 because traces are either collected externally, or are used in other project analysis tools.
 
@@ -48,25 +50,71 @@ The schema must be able to represent the following information:
 - The requirement IDs a trace references
 - Optional: The ident, type, and line span of the element that is linked to the trace
 
-## `exchange.coverage`: Exchange code coverage and test information
+## `exchange.testcov`: Exchange code coverage and test information
+
+- **Parents:** [`exchange`, `testcov`]
 
 Code coverage and test data is often produced and analyzed by multiple tools.
-Therefore, *mantra* must be able to collect and output this information using standardized or well-supported formats.
+Therefore, *mantra* must allow standardized or well-supported formats as inputs,
+and must be able output this information using standardized or well-supported formats.
 
-### `exchange.coverage.collect`: Collect code coverage and test information
+### `exchange.testcov.schema`: Provide *mantra* specific schema to exchange code coverage and test information
 
-Code coverage is often collected by tools specific to programming languages.
-The coverage format supported by those tools alone does not satisfy *mantra*'s `CoverageSchema`,
-because they are missing related test information.
+- **Parents:** [`exchange.testcov`, `testcov.test_run`, `testcov.test_case`, `testcov.cov`]
 
-Consequently, *mantra* must be able to combine information from a combination of provided
-code coverage and test report formats to satisfy the information needed by the `CoverageSchema`.
-e.g. combine Cobertura coverage and GoogleTest
+No standardized or well-supported format so far could be found that closely combines code coverage and test information.
+Therefore, *mantra* should provide a schema that allows to add coverage data to test runs and/or test cases.
 
-### `exchange.coverage.output`: Output code coverage and test information
+### `exchange.testcov.test`: Exchange test data using standardized or well-supported formats
 
-*mantra* must be able to output the collected coverage and test information into standardized or well-supported formats,
-because other tools might be used to do further static analysis.
+- **Parents:** [`exchange.testcov`, `testcov.test_run`, `testcov.test_case`]
 
-Consequently, *mantra* must be able to split information from the `CoverageSchema` into specific coverage or test formats.
-e.g. split information into Cobertura coverage and GoogleTest files
+All standardized or well-supported formats mentioned as sub-requirements
+cannot store coverage data alongside the test data.
+This has the following implications:
+
+- **Format as Input:**
+
+  If a file adhering to a format mentioned under `exchange.testcov.test` is given
+  without additional coverage formats mentioned under `exchange.testcov.cov`,
+  no coverage data will be available for the mentioned test suites and test cases.
+
+- **Format as Output:**
+
+  Only stored test data is output.
+  Possibly related coverage data is ignored.
+
+#### `exchange.testcov.test.junit`: Exchange test data using the JUnit format
+
+[JUnit XML](https://llg.cubic.org/docs/junit/) is a well-supported format for exchanging test data,
+and must therefore be supported as in- and output format for test run and test case information.
+
+The equivalent of a test run in *mantra* in the JUnit format is called test suite.
+
+### `exchange.testcov.cov`: Exchange code coverage data using standardized or well-supported formats
+
+- **Parents:** [`exchange.testcov`, `testcov.cov`]
+
+All standardized or well-supported formats listed as sub-requirements
+cannot store test data alongside the coverage data.
+This has the following implications:
+
+- **Format as Input:**
+
+  Since *mantra* links coverage data to test data, it is not possible to add coverage data
+  without providing related test data that adheres to one of the formats listed in `exchange.testcov.test`.
+
+  An error must be thrown if no test data is provided.
+
+- **Format as Output:**
+
+  Without restricting the output to one or more test runs,
+  all stored coverage data is output.
+
+#### `exchange.testcov.cov.cobertura`: Exchange code coverage data using the Cobertura format
+
+[Cobertura](https://github.com/gcovr/gcovr/blob/main/tests/cobertura.coverage-04.dtd)
+is a well-supported format for exchanging code coverage data.
+However, there seems to be no standardized format for exchanging multiple condition coverage or mc/dc data.
+Therefore, *mantra* must only be able to handle `statement`, `condition`, `branch`, and `function` coverage
+when exchanging code coverage data using the Cobertura format.
