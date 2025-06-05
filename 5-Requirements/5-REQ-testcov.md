@@ -6,16 +6,28 @@ To represent this information in traceability reports, *mantra* must be able to 
 
 ## `testcov.test_run`: Store test run data
 
-Multiple tests may be grouped inside one test-run.
-This is similar to a *testsuite*, but test-runs cannot be nested,
-and represent the actual execution of a *testsuite*.
+Multiple tests may be grouped inside one test run.
+This is similar to a test suite, but test runs represent the execution of a test suite.
 
-This allows to store metadata for test-runs.
-e.g. enabled feature flags, target the tests were run on, ...
+### `testcov.test_run.id`: Identifier of a test run
 
-The test-run metadata is programming language, domain, and company specific,
+The name of the test run must be used as unique identifier.
+Testing tools must ensure that the name is unique inside a *mantra* database.
+
+### `testcov.test_run.date`: Date of a test run
+
+A test run represents the execution of a test suite,
+so it must store the date and time the test run was executed.
+
+The name of a test run is used as identifier,
+and therefore only the newest execution of a test run must be stored.
+
+### `testcov.test_run.metadata`: Metadata of a test run
+
+The test run metadata is programming language, domain, and company specific,
 so it must be possible to store arbitrary information in *mantra*,
 but still be able to access the data for the report generation.
+e.g. enabled feature flags, target the tests were run on, ...
 
 ### `testcov.test_run.nested`: Allow nested test runs
 
@@ -43,13 +55,37 @@ in reference to a test-run, because the state of a test case is important for qu
 The origin of a test case must also be stored, which at least includes the filepath and line number
 the test case is defined at. An optional identifier for the test case may also be stored.
 
+### `testcov.test_case.id`: Identifier of the test case
+
+The name of a test case must be used as unique identifier per test run a test case is linked to.
+Testing tools must ensure that the name is unique per test run.
+
+### `testcov.test_case.origin`: Origin of the test case
+
+- **Parents:** [`testcov.test_case`, `trace.origin`]
+
+The origin of a test case consists of the filepath and line number the test case is defined at.
+For *mantra* to link traces to test cases, the filepaths of test cases and coverage data must use the same relative path origin.
+Storing filepaths as absolute paths would prevent the database or reports from being portable.
+
+### `testcov.test_case.metadata`: Metadata of the test case
+
+The metadata of a test case is programming language, domain, project, and company specific,
+so it must be possible to store arbitrary information in *mantra*,
+but still be able to access the data for the report generation.
+e.g. logs, pre-/post-conditions, description, etc.
+
 ## `testcov.cov`: Store coverage data
+
+- **Parents:** [`testcov`, `trace.origin`]
 
 Code coverage data must be associated with test-runs or test cases to know if a
 requirement was successfully covered by one or more tests.
 
 Detecting if a requirement was covered by a test is possible my mapping
 the line spans of linked traces with the covered lines of the test.
+For this to work, the filepaths of traces and coverage data must use the same relative path origin.
+Storing filepaths as absolute paths would prevent the database or reports from being portable.
 
 **Note:** Preferably, the code coverage data should be linked per test case to get the most
 accurate requirement coverage, but not all test tools and formats support this fine grain coverage control.
