@@ -17,9 +17,15 @@ To know where a trace is located in a text file, the filepath and line number mu
 This information helps developers with project navigation, and is needed for *coverage* analysis
 and certification.
 
-**Note:** With *mantra*'s focus on traces between requirements and code, it is assumed that all traces will point to text files, and therefore using filepath and line number as origin is feasible.
+The trace origin must be used as unique identifier of a trace,
+because filepath and line number is the most basic form of location in a text file. 
 
-## `trace.multiple`: Trace more than one requirement at same origin
+The line numbers must start at one for the first line in a text file.
+
+**Note:** With *mantra*'s focus on traces between requirements and code, it is assumed that all traces will point to text files,
+and therefore using filepath and line number as origin is feasible.
+
+## `trace.mult_reqs`: Trace more than one requirement at same origin
 
 More than one requirement may affect the same code.
 Therefore, it must be possible to specify more than one requirement at the same origin.
@@ -71,73 +77,10 @@ An AST should be used to restrict trace detection for programming languages.
 
 Only requirements traces intended by developers should be detected, because falsely detected traces
 result in unreliable trace data.
-Therefore, traces found in commented code should be ignored,
+Therefore, traces found in commented code should be ignored or have restricted detection rules,
 and language features should be used to further restrict trace detection.
 
-#### `trace.collect.auto.ast.rust`: Collect traces from Rust code
-
-**Note:** `<requirement IDs>` is used below as placeholder for the actual IDs to trace with IDs being separated by `,` and optional whitespace characters.
-
-The following patterns must be recognized as requirements traces in Rust code:
-
-**Attribute Macro:**
-
-These traces have an associates line span of the element the attribute is set on.
-
-```rust
-#[req(<requirement IDs>)]
-fn foo() {}
-```
-
-```rust
-#[mod_path::req(<requirement IDs>)]
-fn foo() {}
-```
-
-```rust
-#[cfg_attr(<some condition>, mod_path::req(<requirement IDs>))]
-fn foo() {}
-```
-
-**Function-like Macro:**
-
-These traces only link to the line the macro is set at.
-
-```rust
-fn foo() {
-    reqcov!(<requirement IDs>)
-}
-```
-
-```rust
-fn foo() {
-    mod_path::reqcov!(<requirement IDs>)
-}
-```
-
-**Traces in Comments:**
-
-These traces have an associated line span of the element the comment is referred to.
-
-```rust
-/// [req(<requirement IDs>)]
-fn foo() {}
-```
-
-For traces in regular line comments, several restrictions apply to prevent false detection:
-
-- Traces must be on a separate commented line without any other content except whitespace
-- The line directly below a trace must contain a non-commented element to which the trace is linked to
-- The affected line span depends on the non-commented element the trace is linked to
-
-```rust
-fn foo() {
-    // [req(<requirement IDs>)]
-    let x = 5;
-}
-```
-
-**Note:** Traces in block comments are not supported.
+See [requirement `lang`](5-REQ-lang) for language specific tracing conventions.
 
 ### `trace.collect.extern`: Add external traces
 

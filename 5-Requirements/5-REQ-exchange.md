@@ -42,7 +42,7 @@ because traces are either collected externally, or are used in other project ana
 
 ### `exchange.traces.schema`: Schema to exchange trace information
 
-- **Parents:** [`exchange.traces`, `trace.id`, `trace.origin`, `trace.multiple`, `trace.element`]
+- **Parents:** [`exchange.traces`, `trace.id`, `trace.origin`, `trace.mult_reqs`, `trace.element`]
 
 The schema must be able to represent the following information:
 

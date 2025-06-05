@@ -65,8 +65,11 @@ Testing tools must ensure that the name is unique per test run.
 - **Parents:** [`testcov.test_case`, `trace.origin`]
 
 The origin of a test case consists of the filepath and line number the test case is defined at.
-For *mantra* to link traces to test cases, the filepaths of test cases and coverage data must use the same relative path origin.
+For *mantra* to link traces to test cases, the filepaths of traces and test cases must use the same relative path origin.
 Storing filepaths as absolute paths would prevent the database or reports from being portable.
+
+The origin of a trace is its unique identifier, and therefore the test case origin must
+also be usable as unique identifier.
 
 ### `testcov.test_case.metadata`: Metadata of the test case
 
@@ -86,6 +89,9 @@ Detecting if a requirement was covered by a test is possible my mapping
 the line spans of linked traces with the covered lines of the test.
 For this to work, the filepaths of traces and coverage data must use the same relative path origin.
 Storing filepaths as absolute paths would prevent the database or reports from being portable.
+
+The line numbers for coverage data must start at one for the first line
+to match with line numbers of traces.
 
 **Note:** Preferably, the code coverage data should be linked per test case to get the most
 accurate requirement coverage, but not all test tools and formats support this fine grain coverage control.
