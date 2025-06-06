@@ -36,7 +36,7 @@ This means that deprecated requirements must not be referenced by any trace or r
 
 ### `analyze.validate.verify`: Verified requirements point to existing requirements
 
-- **Parents:** `analyze.validate`, `review.verify_req`
+- **Parents:** [`analyze.validate`, `review.verify_req`]
 
 A manually verified requirement is valid if it points to an existing requirement.
 

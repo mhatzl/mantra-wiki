@@ -26,18 +26,18 @@ or some were wrongfully introduced.
 
 ## `cli.report`: Command to create (custom) reports
 
-- **Parents:** `cli`, `report`
+- **Parents:** [`cli`, `report`]
 
 A `report` command must be available to create (custom) reports via CLI.
 
 ## `cli.validate`: Command to validate collected data
 
-- **Parents:** `cli`, `analyze.validate`
+- **Parents:** [`cli`, `analyze.validate`]
 
 A `validate` command must be available to validate collected date via CLI.
 
 ## `cli.query`: Command to analyze collected data
 
-- **Parents:** `cli`, `analyze.custom`
+- **Parents:** [`cli`, `analyze.custom`]
 
 A `query` command must be available to analyze collected date via CLI.
