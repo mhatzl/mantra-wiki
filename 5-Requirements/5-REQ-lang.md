@@ -18,7 +18,7 @@ The following patterns must be recognized as requirements traces in Rust code:
 
 **Attribute Macro:**
 
-These traces have an associates line span of the element the attribute is set on.
+These traces have an associated line span of the element the attribute is set on.
 
 ```rust
 #[req(<requirement IDs>)]
@@ -35,19 +35,33 @@ fn foo() {}
 fn foo() {}
 ```
 
+```rust
+#[req(<requirement IDs>; props: "verifies", "satisfies")]
+fn foo() {}
+```
+
+```rust
+#[req(<requirement IDs>; props: "other-prop")]
+fn foo() {}
+```
+
 **Function-like Macro:**
 
 These traces only link to the line the macro is set at.
 
 ```rust
 fn foo() {
-    reqcov!(<requirement IDs>)
-}
-```
+    satisfy_req!(<requirement IDs>);
+    verify_req!(<requirement IDs>);
 
-```rust
-fn foo() {
-    mod_path::reqcov!(<requirement IDs>)
+    satisfy_req!(<requirement IDs>; <some code that is passed through>);
+    verify_req!(<requirement IDs>; assert!(cond == true));
+
+    satisfy_req!(<requirement IDs>; props: "other-prop"; assert!(value > 42));
+    verify_req!(<requirement IDs>; props: "verifies", "satisfies"); // trace that both verifies and satisfies a requirement
+
+    mod_path::satisfy_req!(<requirement IDs>)
+    mod_path::verify_req!(<requirement IDs>)
 }
 ```
 

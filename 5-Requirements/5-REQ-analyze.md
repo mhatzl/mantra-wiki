@@ -34,7 +34,7 @@ A coverage entry is valid if it points to either an existing test run or test ca
 Deprecated requirements must not be used in a project.
 This means that deprecated requirements must not be referenced by any trace or review.
 
-### `analyze.validate.verify`: Verified requirements point to existing requirements
+### `analyze.validate.manual_verify`: Manuelly verified requirements point to existing requirements
 
 - **Parents:** [`analyze.validate`, `review.verify_req`]
 

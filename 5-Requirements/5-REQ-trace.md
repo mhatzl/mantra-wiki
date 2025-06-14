@@ -18,7 +18,7 @@ This information helps developers with project navigation, and is needed for *co
 and certification.
 
 The trace origin must be used as unique identifier of a trace,
-because filepath and line number is the most basic form of location in a text file. 
+because filepath and line number is the most basic form of location in a text file.
 
 The line numbers must start at one for the first line in a text file.
 
@@ -29,6 +29,33 @@ and therefore using filepath and line number as origin is feasible.
 
 More than one requirement may affect the same code.
 Therefore, it must be possible to specify more than one requirement at the same origin.
+
+## `trace.properties`: Properties of a trace
+
+A trace may have properties that further describe the trace.
+e.g. `verifies` and `satisfies`
+
+### `trace.properties.verifies`: Mark a trace to verify a requirement
+
+If a trace to a requirement has the property `verifies`,
+*mantra* must add this trace to the group of information that verify the requirement.
+Other information that verify a requirement are tests and reviews.
+
+Typically, a trace with `verifies` property will be linked to a test.
+In such a case, the trace must not be added to the group of information that verify the requirement,
+because it is already verified by the test and would be redundant information.
+
+### `trace.properties.satisfies`: Mark a trace to satisfy a requirement
+
+If a trace to a requirement has the property `satisfies`,
+*mantra* must add this trace to the group of information that satisfy the requirement.
+
+Typically, a trace with `satisfies` property will be linked to code that implements the requirement.
+
+### `trace.properties.others`: Other properties of a trace
+
+*mantra* must be able to store trace properties that are not used by *mantra* itself,
+because companies and projects may define their own custom trace properties.
 
 ## `trace.collect`: Collect requirements traces
 
