@@ -87,3 +87,10 @@ but require a statement and author explaining the reason for the change.
 
 The possibly affected data of a test run that can change is the one
 defined by the resulting schema for requirement `exchange.testcov.schema`.
+
+## `changes.show`: Visualize detected changes
+
+*mantra* must be able to visualize detected changes
+to provide feedback to users.
+
+TODO: define how to visualize changes
