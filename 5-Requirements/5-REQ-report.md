@@ -3,6 +3,12 @@
 As a product owner, I want to be able to generate various reports that show the states of existing requirements,
 because these reports help to track project development.
 
+## `report.versioning`: Versioning of reports
+
+- **Parents:** [`report`, `lifecycle.versioning`]
+
+*mantra* must provide options to define what project's and versions must be considered when generating a traceability report.
+
 ## `report.formats`: Supported report formats
 
 The following report formats must be supported by *mantra*:
