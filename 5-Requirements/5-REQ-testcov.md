@@ -12,7 +12,7 @@ This is similar to a test suite, but test runs represent the execution of a test
 ### `testcov.test_run.id`: Identifier of a test run
 
 The name of the test run must be used as unique identifier.
-Testing tools must ensure that the name is unique inside a *mantra* database.
+A test run may be executed multiple times and stored in *mantra*, but only the newest execution of a test run must be used to calculate the latest requirements coverage.
 
 ### `testcov.test_run.date`: Date of a test run
 
@@ -50,10 +50,17 @@ Cyclical dependencies between test runs must not be allowed and must be prevente
 
 ## `testcov.test_case`: Store test case data
 
-The information if a test case was executed successfully, failed, or skipped must be stored
-in reference to a test-run, because the state of a test case is important for quality assurance.
-The origin of a test case must also be stored, which at least includes the filepath and line number
-the test case is defined at. An optional identifier for the test case may also be stored.
+A test case must be part of a test run, and must be uniquely identified within the test run.
+
+### `testcov.test_case.state`: State of a test case
+
+The state of a test case must be one of the following:
+
+- `passed`: The test case passed.
+- `failed`: The test case failed.
+- `skipped`: The test case was skipped.
+
+For state `skipped`, the reason for skipping the test case must be stored in *mantra* if such a reason exists in the provided data.
 
 ### `testcov.test_case.id`: Identifier of the test case
 
@@ -68,8 +75,8 @@ The origin of a test case consists of the filepath and line number the test case
 For *mantra* to link traces to test cases, the filepaths of traces and test cases must use the same relative path origin.
 Storing filepaths as absolute paths would prevent the database or reports from being portable.
 
-The origin of a trace is its unique identifier, and therefore the test case origin must
-also be usable as unique identifier.
+The origin of a trace is its unique identifier, and therefore
+the test case origin must also be usable as unique identifier.
 
 ### `testcov.test_case.metadata`: Metadata of the test case
 

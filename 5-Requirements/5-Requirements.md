@@ -5,19 +5,20 @@ This section contains requirements for the system.
 **High-Level Requirements:**
 
 - [req(analyze)](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
+- [req(changes)](5-REQ-changes) ... Contains requirements about tracking changes to collected data in *mantra*
 - [req(cli)](5-REQ-cli) ... Contains requirements about *mantra*'s CLI
 - [req(exchange)](5-REQ-exchange) ... Contains requirements about exchanging information with external tools
 - [req(lang)](5-REQ-lang) ... Contains requirements about conventions for directly supported programming languages
 - [req(qa)](5-REQ-qa) ... Contains requirements about general quality assurance
 - [req(report)](5-REQ-report) ... Contains requirements for reports from collected data
 - [req(requirement)](5-REQ-requirement) ... Contains requirements about storing requirement information
-- [req(safety)](5-REQ-safety) ... Contains requirements about safety-critical aspects for *mantra*
 - [req(testcov)](5-REQ-testcov) ... Contains requirements about collecting test and code coverage data
 - [req(trace)](5-REQ-trace) ... Contains requirements about tracing requirements in code
 
 **Important Requirements:**
 
 - [req(analyze)](5-REQ-analyze) ... Contains requirements about analyzing trace and coverage data
+- [req(changes)](5-REQ-changes) ... Contains requirements about tracking changes to collected data in *mantra*
 - [req(lang)](5-REQ-lang) ... Contains requirements about conventions for directly supported programming languages
 - [req(req.id)](5-REQ-requirement) ... Contains requirements about the requirement ID
 - [req(testcov)](5-REQ-testcov) ... Contains requirements about collecting test and code coverage data

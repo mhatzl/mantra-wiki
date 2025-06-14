@@ -118,3 +118,22 @@ is a well-supported format for exchanging code coverage data.
 However, there seems to be no standardized format for exchanging multiple condition coverage or mc/dc data.
 Therefore, *mantra* must only be able to handle `statement`, `condition`, `branch`, and `function` coverage
 when exchanging code coverage data using the Cobertura format.
+
+## `exchange.review`: Exchange review data
+
+*mantra* must provide a standardized way to exchange reviews
+with third party tools, because reviews may be managed
+or further processed by external tools.
+
+### `exchange.review.schema`: Provide *mantra* specific schema to exchange reviews
+
+- **Parents:** [`exchange.review`, `review.id`, `review.author`, `review.description`, `review.verify_req`, `review.test_case_state`,
+`review.coverage`]
+
+The review for manually verifying requirements is fairly specific to *mantra*.
+Therefore, *mantra* must provide a JSON schema that allows to exchange review data.
+
+Furthermore, *mantra* must accept reviews adhering to this schema from the following formats:
+
+- TOML
+- JSON
