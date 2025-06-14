@@ -3,10 +3,9 @@
 *QA* requirements help to ensure a high quality.
 
 **Note:** General *QA* requirements affect the overall architecture and implementation of a project, because they are not specific to a feature/functionality.
-Therefore, these requirements must be considered for every existing or new feature/functionality, as long as these *QA* requirements are *active*.
+Therefore, these requirements must be considered for every existing or new feature/functionality, as long as these *QA* requirements are not *deprecated*.
 
 **Note:** Only general *QA* requirements should be part of this requirement group. *QA* requirements that are specific to a requirement group should be added to a *qa* requirement subgroup for this feature.
-
 
 ## `qa.DoD`: Have a "Definition of Done" for requirements
 
@@ -16,23 +15,25 @@ Issues may add additional content to the general "Definition of Done".
 ## `qa.pipeline`: Pipeline to ensure a high library quality
 
 A QA pipeline that is run on every PR and push to *main* ensures higher code quality.\
-Running pipeline steps in a defined sequence prevents unnecessary checks, which improves sustainability (see: [req(qa.sustain)](#qasustain-consider-sustainability-during-design-and-development)).
+Running pipeline steps in a defined sequence prevents unnecessary checks, which improves sustainability (see: [`qa.sustain`](#qasustain-consider-sustainability-during-design-and-development)).
 
-### `qa.pipeline.1_style`: Ensure consistent formatting
+The QA pipeline must consist of at least the following steps:
 
-`cargo fmt` is used to ensure consistent code styling, and reduces review times, because code can be formatted automatically.
+1. `style`: Ensure consistent formatting
 
-### `qa.pipeline.2_lint`: Ensure good coding standard
+   `cargo fmt` is used to ensure consistent code styling, and reduces review times, because code can be formatted automatically.
 
-`cargo clippy` is used to as linter to ensure good code quality.
+2. `lint`: Ensure good coding standard
 
-### `qa.pipeline.3_build`: Ensure *mantra* builds
+   `cargo clippy` is used as linter to ensure good code quality.
 
-`cargo build` is used to ensure that the code still compiles.
+3. `build`: Ensure *mantra* builds
 
-### `qa.pipeline.4_tests`: Ensure tests still pass
+   `cargo build` is used to ensure that the code still compiles.
 
-`cargo test` is used to run all *mantra* tests.
+4. `tests`: Ensure tests still pass
+
+   `cargo test` is used to run all *mantra* tests.
 
 ## `qa.sustain`: Consider sustainability during design and development
 
@@ -50,5 +51,3 @@ because this allows to use *mantra* for the development of *mantra* itself.
 
 Using *mantra* must be simple and as little distracting as possible for developers and requirement engineers.
 Therefore, the user experience must be considered during development, especially on user-facing functionality.
-
-Created in response to [issue #1](https://github.com/mhatzl/mantra/issues/1).
