@@ -3,13 +3,27 @@
 As a product owner, I want to be able to generate various reports that show the states of existing requirements,
 because these reports help to track project development.
 
+## `report.formats`: Supported report formats
+
+The following report formats must be supported by *mantra*:
+
+- Markdown
+- HTML
+- JSON
+- PDF
+
+### `report.formats.json`: JSON report format
+
+The JSON report format must have a fixed schema to ensure stability
+for other tools to consume the report.
+
 ## `report.custom`: Custom reports
 
 *mantra* is not able to know what information is relevant for projects.
 Therefore, *mantra* should provide a way to create custom reports using information collected by *mantra*.
 Enough information should be provided by *mantra* per default, so most reports may be created using simple templates.
 
-Created in response to [issue #3](https://github.com/mhatzl/mantra/issues/3).
+**Note:** The JSON report format cannot be customized due to requirement `report.formats.json`.
 
 ## `report.default`: Default report
 
@@ -17,7 +31,11 @@ A default report must be integrated into *mantra*, so users must not create
 their own template.
 The default report should cover most requested use cases of a traceability report.
 
+TODO: what is needed to cover most use cases?
+
 ## `report.checklist`: Checklist for requirements requiring manual verification
+
+- **Parents:** [`report`, `req.manual`]
 
 As a product owner, I want that mantra generates a checklist that contains all requirements that require manual verification,
 because I want to make sure that all of those requirements are verified before a release is published.
@@ -37,11 +55,3 @@ the list should be flattened, and only *manual* requirements should be included 
 ```
 
 Created in response to [issue #5](https://github.com/mhatzl/mantra/issues/5).
-
-## `report.req_snapshot`: 
-
-Requirement content may change during development, even though the ID remains the same.
-Because reports do not include the whole content of a requirement,
-it is necessary to specify a *tag* that identifies a snapshot of the requirements
-for which the report was generated.
-Otherwise, it is not clear if the requirement content got changed since the report was generated.
