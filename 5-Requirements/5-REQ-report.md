@@ -77,3 +77,13 @@ the list should be flattened, and only *manual* requirements should be included 
 ```
 
 Created in response to [issue #5](https://github.com/mhatzl/mantra/issues/5).
+
+## `report.coverage`: Visualize collected coverage data
+
+*mantra* should provide a dedicated coverage report
+that shows metrics per file and element.
+This should help to detect weaknesses in the test coverage of specific elements.
+
+### `report.coverage.content`: Show content linked to coverage data
+
+*mantra* should be able to display the actual content of an element and highlight covered lines, because it helps to visualize lines missing coverage.
