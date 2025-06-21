@@ -151,13 +151,13 @@ fn some_fn() {
 }
 ```
 
-### `trace.element.type`: Optional identifier type
+### `trace.element.kind`: Optional identifier kind
 
-The type of the element a trace is linked to should be stored in *mantra*,
+The kind of the element a trace is linked to should be stored in *mantra*,
 to improve static test and coverage analysis. Especially important is the information
 if a trace is placed on a test case.
 
-For better interoperability, only the following types are allowed with the entry number representing their associated value:
+For better interoperability, only the following kinds are allowed with the entry number representing their associated value:
 
 1. `test` ... For a trace to a test case
 2. `mod` ... For a trace to a module, package, or other general grouping elements
@@ -168,7 +168,7 @@ For better interoperability, only the following types are allowed with the entry
 7. `field` ... For a trace to a field or property of a type
 8. `trait` ... For a trace to a trait, interface, or other abstract type
 
-The special type `other` with value `0` is used as a placeholder for elements that do not fit into the predefined categories.
+The special kind `other` with value `0` is used as a placeholder for elements that do not fit into the predefined categories.
 
 ### `trace.element.span`: Optional associated line span of a trace
 
@@ -177,7 +177,8 @@ This line span must be stored in *mantra* to connect code coverage data with tra
 
 **Example:**
 
-The trace spans all three lines of the `some_fn` function.
+The trace spans all four lines of the `some_fn` function,
+including the attribute macro.
 
 ```rust
 #[req(spanning_trace)]
