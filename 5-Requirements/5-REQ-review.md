@@ -10,9 +10,9 @@ and UTC datetime of the review, because some form of identification is required 
 
 **Note:** It is assumed that a name and UTC datetime is enough to uniquely identify a review.
 
-## `review.authors`: Authors of a review
+## `review.reviewer`: Reviewer of a review
 
-Every review must contain a list of authors that were involved in the review, because this is essential information for a any review.
+Every review must contain a list of reviewers that were involved in the review, because this is essential information for a any review.
 
 ## `review.description`: Description of a review
 
