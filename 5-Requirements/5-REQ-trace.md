@@ -9,6 +9,8 @@ to detect transitive relations between requirements and artifacts.
 
 ## `trace.id`: Use the requirement ID for traces
 
+- **Parents:** [`trace`, `req.id`]
+
 The requirement ID must be used for tracing, because the ID uniquely identifies a requirement.
 
 ## `trace.origin`: Origin of requirement traces
