@@ -39,6 +39,12 @@ allow nested test suites and *mantra* must be able to exchange test data that ad
 The number of test cases of a test run must be the sum of all test cases directly linked to the test run
 plus the number of test cases of all nested test runs.
 
+However, test runs must only have one parent,
+to fit the nested structure of formats like JUnit.
+It is also easier to create a usable schema,
+by allowing to set a list of test runs as a field in the parent test run.
+Taking the approach to express hierarchies from the requirement schema would be harder for test runs, because the id of a test run is more tedious to set manually compared to the requirement id.
+
 **Implementation Details:**
 
 Nested test runs are handled similar to the requirements hierarchy,
