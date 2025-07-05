@@ -125,6 +125,15 @@ because this information is important for safety-critical certifications.
 It must be possible to store the branch coverage of a specific test case or test-run,
 because this information is important for safety-critical certifications.
 
+See https://www.rapitasystems.com/difference-between-decision-coverage-and-branch-coverage for the difference between branch and decision coverage.
+
+### `testcov.cov.decision`: Store decision coverage data
+
+It must be possible to store the decision coverage of a specific test case or test-run,
+because this information is important for safety-critical certifications.
+
+See https://www.rapitasystems.com/difference-between-decision-coverage-and-branch-coverage for the difference between branch and decision coverage.
+
 ### `testcov.cov.condition`: Store condition coverage data
 
 It must be possible to store the condition coverage of a specific test case or test-run,
