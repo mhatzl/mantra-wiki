@@ -30,9 +30,9 @@ or some requirements may explicitly require manual verification.
 In *mantra*, requirements may be manually verified in reviews,
 using the requirement ID to refer to the requirement.
 
-Additional information about the verification may be described
-in a comment next to the requirement ID.
-This option is especially important in safety-critical domains,
+Additional information about the verification must be described
+in a comment next to the requirement ID(s).
+This is especially important in safety-critical domains,
 where such information is needed for qualification.
 
 ## `review.test_case_state`: Override state of a test case
