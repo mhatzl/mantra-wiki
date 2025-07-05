@@ -120,6 +120,11 @@ accurate requirement coverage, but not all test tools and formats support this f
 It must be possible to store the line coverage of a specific test case or test-run,
 because this information is important for safety-critical certifications.
 
+### `testcov.cov.branch`: Store branch coverage data
+
+It must be possible to store the branch coverage of a specific test case or test-run,
+because this information is important for safety-critical certifications.
+
 ### `testcov.cov.condition`: Store condition coverage data
 
 It must be possible to store the condition coverage of a specific test case or test-run,
