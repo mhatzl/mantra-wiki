@@ -66,7 +66,13 @@ The state of a test case must be one of the following:
 - `failed`: The test case failed.
 - `skipped`: The test case was skipped.
 
+#### `testcov.test_case.state.reason`: Reason for the state of a test case
+
 For state `skipped`, the reason for skipping the test case must be stored in *mantra* if such a reason exists in the provided data.
+
+#### `testcov.test_case.state.unknown`: Unknown state of a test case
+
+If a test case is not in one of the supported states defined by `testcov.test_case.state`, the state must be makred as `unknown` and the test case treated as failed.
 
 ### `testcov.test_case.id`: Identifier of the test case
 
