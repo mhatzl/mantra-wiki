@@ -32,30 +32,28 @@ and therefore using filepath and line number as origin is feasible.
 More than one requirement may affect the same code.
 Therefore, it must be possible to specify more than one requirement at the same origin.
 
+## `trace.kind`: Kind of a trace
+
+A trace must be assigned to one of the following kinds:
+
+- **Clarifies**
+
+  Traces of kind `clarifies` may be used to link documents, diagrams, or other artifacts
+  that provide more details and rationale for the traced requirements.
+
+- **Satisfies**
+
+  Traces of kind `satisfies` may be used to link to code sections or other artifacts
+  that implement the traced requirements.
+
+- **Verifies**
+
+  Traces of kind `verifies` may be used to link to tests, assertions, or other artifacts
+  that verify the traced requirements.
+
 ## `trace.properties`: Properties of a trace
 
 A trace may have properties that further describe the trace.
-e.g. `verifies` and `satisfies`
-
-### `trace.properties.verifies`: Mark a trace to verify a requirement
-
-If a trace to a requirement has the property `verifies`,
-*mantra* must add this trace to the group of information that verify the requirement.
-Other information that verify a requirement are tests and reviews.
-
-Typically, a trace with `verifies` property will be linked to a test.
-In such a case, the trace must not be added to the group of information that verify the requirement,
-because it is already verified by the test and would be redundant information.
-
-### `trace.properties.satisfies`: Mark a trace to satisfy a requirement
-
-If a trace to a requirement has the property `satisfies`,
-*mantra* must add this trace to the group of information that satisfy the requirement.
-
-Typically, a trace with `satisfies` property will be linked to code that implements the requirement.
-
-### `trace.properties.others`: Other properties of a trace
-
 *mantra* must be able to store trace properties that are not used by *mantra* itself,
 because companies and projects may define their own custom trace properties.
 

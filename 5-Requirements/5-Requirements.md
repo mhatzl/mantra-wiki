@@ -94,14 +94,15 @@ A requirement goes through the following phases:
    A **declined** requirement must be removed from the wiki if it already exists.
    This keeps the wiki small, and focused to implemented or *soon-to-be implemented* requirements.
 
-4. **traced** ... When a requirement has at least one trace to an artifact like a code or configuration file, the requirement gets **traced**
+4. **satisfied** ... A requirement has at least one trace to an artifact like a code or configuration file that `satisfies` the requirement
 
-   [mantra](https://github.com/mhatzl/mantra) may be used to automate tracing of requirements.
+   Satisfying a requirement typically means that the requirement is implemented.
 
-5. **covered** ... If at least one test case exists that covers one or more traces of a requirement, the requirement gets **covered**
+5. **verified** ... At least one test case or other artifact exists that covers one or more traces that `verify` the requirement
 
-   Statement coverage may be collected during test execution to automate the detection of covered requirements.
-   By default, covering one line that is linked to a trace of a requirement is enough to consider the requirement **covered**, but more strict criteria may be defined on a project by project basis.
+   Statement coverage may be collected during test execution to automate the detection of verified requirements.
+   By default, covering one line that is linked to a trace that verifies a requirement is enough to consider
+   the requirement **verified**, but more strict criteria may be defined on a project by project basis.
 
 6. **Optional: deprecated** ... If a requirement is replaced or removed by another requirement, the requirement gets **deprecated**
 

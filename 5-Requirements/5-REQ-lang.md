@@ -16,52 +16,45 @@ Contains conventions for Rust code to allow automated collection of traceability
 
 The following patterns must be recognized as requirements traces in Rust code:
 
-**Attribute Macro:**
+#### Attribute Macros
 
 These traces have an associated line span of the element the attribute is set on.
 
-```rust
-#[req(<requirement IDs>)]
-fn foo() {}
-```
+- **Satisfy Requirement Macro:**
 
-```rust
-#[mod_path::req(<requirement IDs>)]
-fn foo() {}
-```
+  The attribute macro `#[req()]` may be used to mark code that satisfies one or more requirements.
+  *mantra* must automatically add 
 
-```rust
-#[cfg_attr(<some condition>, mod_path::req(<requirement IDs>))]
-fn foo() {}
-```
+  ```rust
+  #[req(<requirement IDs>)]
+  fn foo() {}
+  ```
+  
+  ```rust
+  #[mod_path::req(<requirement IDs>)]
+  fn foo() {}
+  ```
+  
+  ```rust
+  #[cfg_attr(<some condition>, mod_path::req(<requirement IDs>))]
+  fn foo() {}
+  ```
+  
+  ```rust
+  #[req(<requirement IDs>; props: "custom-prop-1", "custom-prop-2")]
+  fn foo() {}
+  ```
 
-```rust
-#[req(<requirement IDs>; props: "verifies", "satisfies")]
-fn foo() {}
-```
-
-```rust
-#[req(<requirement IDs>; props: "other-prop")]
-fn foo() {}
-```
-
-**Function-like Macro:**
+**Function-like Macros:**
 
 These traces only link to the line the macro is set at.
 
 ```rust
 fn foo() {
     satisfy_req!(<requirement IDs>);
-    verify_req!(<requirement IDs>);
-
     satisfy_req!(<requirement IDs>; <some code that is passed through>);
-    verify_req!(<requirement IDs>; assert!(cond == true));
-
-    satisfy_req!(<requirement IDs>; props: "other-prop"; assert!(value > 42));
-    verify_req!(<requirement IDs>; props: "verifies", "satisfies"); // trace that both verifies and satisfies a requirement
-
+    satisfy_req!(<requirement IDs>; props: "custom-prop"; <some code that is passed through>);
     mod_path::satisfy_req!(<requirement IDs>)
-    mod_path::verify_req!(<requirement IDs>)
 }
 ```
 

@@ -42,12 +42,14 @@ because traces are either collected externally, or are used in other project ana
 
 ### `exchange.traces.schema`: Schema to exchange trace information
 
-- **Parents:** [`exchange.traces`, `trace.id`, `trace.origin`, `trace.mult_reqs`, `trace.element`]
+- **Parents:** [`exchange.traces`, `trace.id`, `trace.origin`, `trace.mult_reqs`, `trace.kind`, `trace.properties`, `trace.element`]
 
 The schema must be able to represent the following information:
 
-- The filepath and line number of each trace
+- The filepath and line number of a trace
 - The requirement IDs a trace references
+- The kind of a trace
+- Optional: Properties of a trace
 - Optional: The ident, type, and line span of the element that is linked to the trace
 
 ## `exchange.testcov`: Exchange code coverage and test information
