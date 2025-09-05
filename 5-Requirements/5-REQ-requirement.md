@@ -7,7 +7,8 @@ because requirements are a fundamental part of *mantra*, and identification is n
 
 Every requirement must have a unique ID assigned to it,
 because some way of identification is needed to reference requirements.
-The ID should already tell developers what the requirement is roughly about to help identify the correct requirement to trace.
+
+**Note:** The ID should already tell developers what the requirement is roughly about to help identify the correct requirement to trace.
 
 ### `req.id.sub_req`: Sub-requirements for high-level requirements
 
@@ -24,18 +25,21 @@ which should improve familiarity for developers.
 
 **Example:** `parent_req.sub_req`
 
+**Note:** IDs should not contain whitespace to improve the readability of this *dot-notation*.
+
 ### `req.id.restrictions`: Restrict allowed characters to use for IDs
 
-An ID must not contain the characters `.`, `"`, `'`, `,`, `` ` ``, `[`, `]`, `(`, `)`, `{`, `}`.
+- **Parents:** [`req.id`, `trace.collect.auto.pattern`, `req.id.sub_req`, `req.collect.wiki`, `report.formats`]
 
-- `.` is used to create requirement hierarchies
-- `"` is used in JSON files to wrap requirement IDs, and to wrap IDs in traces in case some characters are not allowed as part of an identifier in a programming language (see [req(trace.special_chars)])
+An ID must not contain the characters `.`, `"`, `'`, `,`, `` ` ``, `;`, `<`, `>`.
+
+- `.` is used to create requirement hierarchies (see [req("req.id.sub_req")])
+- `"` is used to wrap requirement IDs in *mantra*'s common trace pattern (see [req("trace.collect.auto.pattern")])
 - `'` could be confused with double quotes
-- `,` is used to set multiple IDs in one trace (see [req(trace.detect)])
-- `` ` `` is used to wrap IDs in Wikis based on Markdown syntax (see [req(extract.wiki)])
-- Grouping characters `[`, `]`, `(`, `)`, `{`, `}` would interfere with trace syntax (see [req(trace.detect)])
-
-**Note:** It is recommended that IDs follow common conventions for identifiers in programming languages to help with traceability in code files.
+- `,` is used to set multiple IDs in one trace (see [req("trace.collect.auto.pattern")])
+- `` ` `` is used to wrap IDs in Wikis based on Markdown syntax (see [req("req.collect.wiki")])
+- `;` is used as separator between requirement IDs and trace properties in *mantra*'s common trace pattern (see [req("trace.collect.auto.pattern")])
+- `<`, `>` would potentially break the HTML report without sanitizing every ID (see [req("report.formats")])
 
 ## `req.hierarchy`: Requirements hierarchy
 

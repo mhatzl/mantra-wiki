@@ -10,82 +10,154 @@ Contains conventions for Rust code to allow automated collection of traceability
 
 ### `lang.rust.tracing`: Rules to detect traces in Rust code
 
-- **Parents:** [`lang.rust`, `trace.collect.auto.ast`]
+- **Parents:** [`lang.rust`, `trace.collect.auto.ast`, `trace.collect.auto.pattern`, `trace.kind`]
 
-**Note:** `<requirement IDs>` is used below as placeholder for the actual IDs to trace with IDs being separated by `,` and optional whitespace characters.
+Sub-requirements describe patterns that must be recognized as requirements traces in Rust code.
 
-The following patterns must be recognized as requirements traces in Rust code:
+**Note:** `<requirement IDs>` is used in this section as placeholder for the pattern or parts of the pattern defined in [req("trace.collect.auto.pattern")].
 
-#### Attribute Macros
+#### `lang.rust.tracing.attribute_macros`: Detectable attribute macros
 
-These traces have an associated line span of the element the attribute is set on.
+These traces have an associated line span of the element the attribute macro is set on.
+
+The module path must be irrelevant for the detection to allow different macro implementations.
+
+*mantra* must be able to detect the attribute macro inside a `cfg_attr` attribute macro independent of the currently active features.
+
+- **Clarify Requirement Macro:**
+
+  The attribute macro `#[req_note()]` may be used to mark code that adds **clarification** for one or more requirements.
+  Therefore, *mantra* must detect this macro as a trace of kind **clarify**.
+
+  **Examples**:
+
+  ```rust
+  #[req_note(<requirement IDs>)]
+  fn foo() {}
+  ```
 
 - **Satisfy Requirement Macro:**
 
-  The attribute macro `#[req()]` may be used to mark code that satisfies one or more requirements.
-  *mantra* must automatically add 
+  The attribute macro `#[req()]` may be used to mark code that **satisfies** one or more requirements.
+  Therefore, *mantra* must detect this macro as a trace of kind **satisfy**.
+
+  **Examples**:
 
   ```rust
   #[req(<requirement IDs>)]
   fn foo() {}
   ```
-  
+
   ```rust
   #[mod_path::req(<requirement IDs>)]
   fn foo() {}
   ```
-  
+
   ```rust
   #[cfg_attr(<some condition>, mod_path::req(<requirement IDs>))]
   fn foo() {}
   ```
-  
+
   ```rust
-  #[req(<requirement IDs>; props: "custom-prop-1", "custom-prop-2")]
+  #[req(<requirement IDs>; { prop_key: "custom-prop-1" }, "custom-prop-2")]
   fn foo() {}
   ```
 
-**Function-like Macros:**
+- **Verify Requirement Macro:**
 
-These traces only link to the line the macro is set at.
+  The attribute macro `#[req_test()]` may be used to mark code that **verifies** one or more requirements.
+  Therefore, *mantra* must detect this macro as a trace of kind **verify**.
 
-```rust
-fn foo() {
-    satisfy_req!(<requirement IDs>);
-    satisfy_req!(<requirement IDs>; <some code that is passed through>);
-    satisfy_req!(<requirement IDs>; props: "custom-prop"; <some code that is passed through>);
-    mod_path::satisfy_req!(<requirement IDs>)
-}
-```
+  **Examples**:
 
-**Traces in Comments:**
+  ```rust
+  #[req_test(<requirement IDs>)]
+  fn foo() {}
+  ```
+
+- **Link Requirement Macro:**
+
+  The attribute macro `#[req_link()]` may be used to mark code that **links** to one or more requirements.
+  Therefore, *mantra* must detect this macro as a trace of kind **links**.
+
+  **Examples**:
+
+  ```rust
+  #[req_link(<requirement IDs>)]
+  fn foo() {}
+  ```
+
+#### `lang.rust.tracing.fn_macros`: Detectable function-like macros
+
+These traces only link to the lines the macro itself spans.
+
+The module path must be irrelevant for the detection to allow different macro implementations.
+
+- **Satisfy Requirement Macro:**
+
+  ```rust
+  fn foo() {
+      satisfy_req!(<requirement IDs>; <some code that is passed through>);
+      mod_path::satisfy_req!(<requirement IDs>; { some_key: "custom-prop" }; <some code that is passed through>);
+  }
+  ```
+
+- **Verify Requirement Macro:**
+
+  ```rust
+  fn foo() {
+      assert_req!(<requirement IDs>; <some boolean expression that must evaluate to "true">, <some message explaining the assertion>);
+      assert_req_eq!(<requirement IDs>; <left side>, <right side>);
+  }
+  ```
+
+#### Detectable traces in comments
 
 These traces have an associated line span of the element the comment is referred to.
+The trace syntax is similar to the one for attribute macros except the missing `#` at the start.
 
-```rust
-/// [req(<requirement IDs>)]
-fn foo() {}
-```
+**Note:** Traces in block comments are not supported to reduce the potential of false trace detection.
 
-For traces in regular line comments, several restrictions apply to prevent false detection:
+- **Doc-Comments:**
 
-- Traces must be on a separate commented line without any other content except whitespace
-- The line directly below a trace must contain a non-commented element to which the trace is linked to
-- The affected line span depends on the non-commented element the trace is linked to
+  ```rust
+  /// [req(<requirement IDs>)]
+  fn foo() {}
+  ```
 
-```rust
-fn foo() {
-    // [req(<requirement IDs>)]
-    let x = 5;
-}
-```
+- **Line Comments:**
 
-**Note:** Traces in block comments are not supported.
+  For traces in regular line comments, several restrictions apply to prevent false detection:
 
-### `lang.rust.tracing.span`: Line span of elements in Rust code
+  - Traces must be on a separate commented line without any other content except whitespace
+  - The line directly below a trace must contain a non-commented element to which the trace is linked to
+  - The affected line span depends on the non-commented element the trace is linked to
 
-Line spans of elements in Rust code must include the header, body,
+  ```rust
+  fn foo() {
+      // [req(<requirement IDs>)]
+      let x = 5;
+  }
+  ```
+
+### `lang.rust.tracing.span`: Line span of elements and code blocks in Rust code
+
+Line spans of elements in Rust code must include the element header, element body,
 doc comments, and attribute macros set on an element,
 because code generated by attribute macros has the line the macro is set at.
 To properly map covered statements to traces, the line span
 of elements must therefore cover more lines than just the body.
+
+e.g. all lines of the example below are part of the element span
+
+```rust
+/// Some doc comment for the function.
+#[req(<requirement IDs>)]
+fn foo() { // <- element header up until `{`
+    // some body content
+}
+```
+
+Line spans of code blocks must include the span of the code block
+and the optional line comments directly above a code block
+if no blank line is between the last line comment and the code block start.
