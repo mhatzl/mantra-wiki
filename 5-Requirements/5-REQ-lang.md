@@ -89,29 +89,44 @@ The module path must be irrelevant for the detection to allow different macro im
 
 #### `lang.rust.tracing.fn_macros`: Detectable function-like macros
 
-These traces only link to the lines the macro itself spans.
+These traces only link to the lines the function-like macro itself spans.
+Therefore, these macros must allow to wrap/surround code that is kept through as is.
+One `:` colon must be used after the requirement IDs and optional trace properties to separate them from the wrapped code.
 
 The module path must be irrelevant for the detection to allow different macro implementations.
 
 - **Satisfy Requirement Macro:**
 
+  The function-like macro `satisfy_req!()` may be used to mark code that **satisfies** one or more requirements.
+  Therefore, *mantra* must detect this macro as a trace of kind **satisfy**.
+
+  **Examples**:
+
   ```rust
   fn foo() {
-      satisfy_req!(<requirement IDs>; <some code that is passed through>);
-      mod_path::satisfy_req!(<requirement IDs>; { some_key: "custom-prop" }; <some code that is passed through>);
+      satisfy_req!(<requirement IDs>: <some code that satisfies the requirements>);
+      mod_path::satisfy_req!(<requirement IDs>; { some_key: "custom-prop" }: <some code that satisfies the requirements>);
   }
   ```
 
 - **Verify Requirement Macro:**
 
+  The function-like macros `assert_req!()`, `assert_eq!()`, and `assert_ne!()` may be used to mark code that **verifies** one or more requirements.
+  Therefore, *mantra* must detect those macros as traces of kind **verify**.
+
+  These macros must behave like the equivalent assertions of Rust's `std` library.
+
+  **Examples**:
+
   ```rust
   fn foo() {
-      assert_req!(<requirement IDs>; <some boolean expression that must evaluate to "true">, <some message explaining the assertion>);
-      assert_req_eq!(<requirement IDs>; <left side>, <right side>);
+      assert_req!(<requirement IDs>; { some_key: "custom-prop" }: <some boolean expression that must evaluate to "true">, <some optional message explaining the assertion>);
+      assert_req_eq!(<requirement IDs>: <left side>, <right side>, <some optional message explaining the assertion>);
+      assert_req_ne!(<requirement IDs>: <left side>, <right side>, <some optional message explaining the assertion>);
   }
   ```
 
-#### Detectable traces in comments
+#### `lang.rust.tracing.comments`:  Detectable traces in comments
 
 These traces have an associated line span of the element the comment is referred to.
 The trace syntax is similar to the one for attribute macros except the missing `#` at the start.
@@ -123,6 +138,9 @@ The trace syntax is similar to the one for attribute macros except the missing `
   ```rust
   /// [req(<requirement IDs>)]
   fn foo() {}
+
+  /// [req_test(<requirement IDs>)]
+  fn test_foo() {}
   ```
 
 - **Line Comments:**
@@ -132,11 +150,23 @@ The trace syntax is similar to the one for attribute macros except the missing `
   - Traces must be on a separate commented line without any other content except whitespace
   - The line directly below a trace must contain a non-commented element to which the trace is linked to
   - The affected line span depends on the non-commented element the trace is linked to
+  - For conditional if blocks, only line comments directly above the starting `if` block must be searched for traces,
+    and the span must include all lines up to the end of the last `else` block.
 
   ```rust
-  fn foo() {
+  fn foo(y: isize) {
+      // [req(<requirement IDs>)] <- trace span starts at this line
+      let x = 5; // <- trace span goes until this line
+
+      // Some comment above the if block <- trace span starts at this line
       // [req(<requirement IDs>)]
-      let x = 5;
+      if x == y {
+          // do something ...
+      } else if x < y {
+          // do something else ...
+      } else {
+          // do something else ...
+      } // <- trace span goes until this line
   }
   ```
 
