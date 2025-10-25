@@ -196,7 +196,7 @@ the ID may be wrapped in double quotes `"`.
 - **Parents:** [`trace`, `lang.rust.tracing`]
 
 A trace may be linked to a code block that is not an element such as a loop or statement.
-Therefore, *mantra* must be able to store code blocks that have no associated identifier or definition.
+Therefore, *mantra* must be able to store trace information linked to code blocks that have no associated identifier or definition.
 
 ### `trace.code_block.span`: Associated line span of a code block
 

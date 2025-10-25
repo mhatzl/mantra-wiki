@@ -3,21 +3,22 @@
 As a product owner, I want to be able to generate various reports that show the states of existing requirements,
 because these reports help to track project development.
 
-## `report.versioning`: Versioning of reports
+## `report.base`: Select which collected data is part of a report
 
-- **Parents:** [`report`, `lifecycle.versioning`]
+- **Parents:** [`report`, `lifecycle.project`]
 
-*mantra* must provide options to define what project's and versions must be considered when generating a traceability report.
+*mantra* must provide options to define what project's and what project baselines must be used when generating a traceability report.
 
 ## `report.project_data`: Show project information in the report
 
-- **Parents:** [`report`, `lifecycle.versioning.id`]
+- **Parents:** [`report`, `lifecycle.project.id`]
 
 *mantra* must be able to display the following project related information in a report:
 - name ... The name of a project
-- version ... The version of a project
+- base ... The development base for collected data
 
 *mantra* should be able to display the following project related information in a report:
+- version ... The version of a project
 - homepage ... The URL of the homepage of a project
 - repository ... The URL of the repository of a project
 - license ... The license of a project
