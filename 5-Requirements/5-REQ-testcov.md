@@ -9,6 +9,11 @@ To represent this information in traceability reports, *mantra* must be able to 
 Multiple tests may be grouped inside one test run.
 This is similar to a test suite, but test runs represent the execution of a test suite.
 
+### `testcov.test_run.origin`: Store the origin of the test run data
+
+The origin of a test run must be stored in *mantra*, but the storage format should stay flexible to allow different origin variants.
+For example, test runs could have local files or URLs as origins.
+
 ### `testcov.test_run.id`: Identifier of a test run
 
 The name of the test run must be used as unique identifier.
@@ -104,16 +109,35 @@ e.g. logs, pre-/post-conditions, description, etc.
 Code coverage data must be associated with test-runs or test cases to know if a
 requirement was successfully covered by one or more tests.
 
+**Note:** Preferably, the code coverage data should be linked per test case to get the most
+accurate requirement coverage, but not all test tools and formats support this fine grain coverage control.
+
+### `testcov.cov.trace_mapping`: Map traces to code coverage of tests
+
 Detecting if a requirement was covered by a test is possible my mapping
 the line spans of linked traces with the covered lines of the test.
-For this to work, the filepaths of traces and coverage data must use the same relative path origin.
+
+#### `testcov.cov.trace_mapping.use_hash`: Map trace and code coverage data when knowing file hashes
+
+If file hashes are provided for test results and code coverage metrics,
+*mantra* must validate that traces were collected for those file hashes,
+and map coverage metrics to those file entries.
+
+#### `testcov.cov.trace_mapping.no_hash`: Map trace and code coverage data without knowing file hashes
+
+If a file hash is not provided for test results and code coverage metrics,
+*mantra* should use the collection timestamps, test run timestamps, spans of detected elements, and statement coverage metrics
+to map coverage metrics to the most likely hash of a file.
+
+#### `testcov.cov.trace_mapping.filepath`: Same relative filepath origin
+
+For the trace and code coverage mapping to work, the filepaths of traces and coverage data must use the same relative path origin.
 Storing filepaths as absolute paths would prevent the database or reports from being portable.
+
+#### `testcov.cov.trace_mapping.line_nr`: Line numbering
 
 The line numbers for coverage data must start at one for the first line
 to match with line numbers of traces.
-
-**Note:** Preferably, the code coverage data should be linked per test case to get the most
-accurate requirement coverage, but not all test tools and formats support this fine grain coverage control.
 
 ### `testcov.cov.lines`: Store line coverage data
 

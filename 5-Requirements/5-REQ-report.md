@@ -88,3 +88,9 @@ This should help to detect weaknesses in the test coverage of specific elements.
 ### `report.coverage.content`: Show content linked to coverage data
 
 *mantra* should be able to display the actual content of an element and highlight covered lines, because it helps to visualize lines missing coverage.
+
+## `report.validate`: Validate collected data before generating a report
+
+The collected data and any additional data used to generate a report must be validated to ensure correctness.
+For example, content of elements may not be stored in mantra but retrieved locally, but to ensure correctness,
+the file hash when generating a report must match the hash stored in *mantra*.

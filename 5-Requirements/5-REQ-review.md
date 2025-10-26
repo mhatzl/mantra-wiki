@@ -14,6 +14,22 @@ and UTC datetime of the review, because some form of identification is required 
 
 Every review must contain a list of reviewers that were involved in the review, because this is essential information for a any review.
 
+## `review.origin`: Origin of a review
+
+The origin of a review must be stored in *mantra*, but the storage format should stay flexible to allow different origin variants.
+For example, reviews could have local files or URLs as origins.
+
+## `review.revisions`: Allow revisions of reviews
+
+- **Parents:** [`review`, `changes.track`]
+
+It must be possible to alter existing reviews, because typos or mistakes may be detected after data is collected.
+To keep track of changes, revision numbers must be used with the initial revision number starting at zero and each new revision increments the number by one.
+
+**Implementation Details:**
+
+To notice changes in a review, the hash over a review content must be stored per revision.
+
 ## `review.description`: Description of a review
 
 Every review may contain a general description

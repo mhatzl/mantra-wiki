@@ -6,6 +6,19 @@ might be affected by those changes.
 
 This is especially important in safety-critical domains.
 
+## `changes.authors`: Collect names of authors responsible for the change
+
+It must be possible to store the name of authors responsible for changes in collected data in *mantra*,
+because it allows to relate changes to people.
+For ease of use, *mantra* must be able to track changes even if no authors are given,
+because project changes are commonly tracked in version control systems anyways.
+
+## `changes.comment`: Collect comment explaining a change
+
+It must be possible to store a comment that explains the changes introduced in *mantra* with newly collected data,
+because it allows to better understand the changes and their implications.
+This comment must be optional, because enforcing it on every change would decrease the ease of use of *mantra*.
+
 ## `changes.track`: Track changes to collected data
 
 *mantra* must be able to automatically track changes to collected data,

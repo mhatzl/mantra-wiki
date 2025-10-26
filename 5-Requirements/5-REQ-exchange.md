@@ -129,13 +129,13 @@ or further processed by external tools.
 
 ### `exchange.review.schema`: Provide *mantra* specific schema to exchange reviews
 
-- **Parents:** [`exchange.review`, `review.id`, `review.author`, `review.description`, `review.verify_req`, `review.test_case_state`,
+- **Parents:** [`exchange.review`, `review.id`, `review.author`, `review.description`, `review.origin`, `review.verify_req`, `review.test_case_state`,
 `review.coverage`]
 
 The review for manually verifying requirements is fairly specific to *mantra*.
 Therefore, *mantra* must provide a JSON schema that allows to exchange review data.
 
-Furthermore, *mantra* must accept reviews adhering to this schema from the following formats:
+Furthermore, *mantra* must accept reviews adhering to this schema from the following file formats:
 
 - TOML
 - JSON
