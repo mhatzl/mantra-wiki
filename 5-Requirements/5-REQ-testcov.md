@@ -117,6 +117,14 @@ accurate requirement coverage, but not all test tools and formats support this f
 Detecting if a requirement was covered by a test is possible my mapping
 the line spans of linked traces with the covered lines of the test.
 
+#### `testcov.cov.trace_mapping.vcs`: Map trace and code coverage data when knowing the VCS ident
+
+- **Parents:** [`testcov.cov.trace_mapping`, `changes.track.vcs`]
+
+If a VCS identifier is provided for test results and code coverage metrics,
+*mantra* must validate that traces were collected for this VCS ident,
+and map coverage metrics to entries related to this VCS ident.
+
 #### `testcov.cov.trace_mapping.use_hash`: Map trace and code coverage data when knowing file hashes
 
 If file hashes are provided for test results and code coverage metrics,

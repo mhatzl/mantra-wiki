@@ -27,6 +27,13 @@ and provide a history of those changes.
 *mantra* should **not** rely on an underlying version control system (VCS),
 but may add VCS related information if it is available.
 
+### `changes.track.vcs`: Link changes to VCS
+
+It must be possible to link changes in *mnatra* to a particular VCS identifier (e.g. git commit),
+because the hash of a content cannot show the change history and only detect that a content has changed.
+
+Projects may use different VCS or none at all, so *mantra* must not depend on a particular VCS.
+
 ### `changes.track.reqs`: Track changes to requirements
 
 - **Parents:** [`changes.track`, `exchange.requirements.schema`]
@@ -57,7 +64,7 @@ can only be tracked if no other information of a requirement changes.
 
 #### `changes.track.traces.files`: Track changes to files that contain traces
 
-**Parents:** [`changes.track.traces`,`trace.origin`]
+- **Parents:** [`changes.track.traces`,`trace.origin`]
 
 Changes to the file a trace was detected in might affect the trace
 itself and must therefore be stored in *mantra*.
@@ -78,7 +85,7 @@ makes older coverage data incompatible or not trustworthy.
 
 ### `changes.track.test_runs`: Track changes to test runs
 
-**Parents:** [`changes.track`, `exchange.testcov.schema`]
+- **Parents:** [`changes.track`, `exchange.testcov.schema`]
 
 Changes to stored test run data for a specific execution time is suspicious,
 because such data should not change after it was stored.
@@ -91,7 +98,7 @@ defined by the resulting schema for requirement `exchange.testcov.schema`.
 
 ### `changes.track.reviews`: Track changes to reviews
 
-**Parents:** [`changes.track`, `exchange.review.schema`]
+- **Parents:** [`changes.track`, `exchange.review.schema`]
 
 Changes to stored test run data for a specific execution time is suspicious,
 because such data should not change after it was stored.
@@ -107,3 +114,9 @@ defined by the resulting schema for requirement `exchange.testcov.schema`.
 to provide feedback to users.
 
 TODO: define how to visualize changes
+
+## `changes.compact_content`: Store content in a way to reduce data duplication
+
+- **Parents:** [`changes`, `report.coverage.content`]
+
+*mantra* should store content in a way that allows to reduce data duplication.
