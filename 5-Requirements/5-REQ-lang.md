@@ -58,6 +58,8 @@ The module path must be irrelevant for the detection to allow different macro im
   fn foo() {}
   ```
 
+  **Note:** The `<some condition>` must be added as trace property under the field `cfg-attr`.
+
   ```rust
   #[req(<requirement IDs>; { prop_key: "custom-prop-1" }, "custom-prop-2")]
   fn foo() {}
