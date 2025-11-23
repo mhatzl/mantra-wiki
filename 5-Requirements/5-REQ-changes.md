@@ -27,12 +27,29 @@ and provide a history of those changes.
 *mantra* should **not** rely on an underlying version control system (VCS),
 but may add VCS related information if it is available.
 
-### `changes.track.vcs`: Link changes to VCS
+### `changes.track.origin`: Track origins of information collected
 
-It must be possible to link changes in *mnatra* to a particular VCS identifier (e.g. git commit),
+- **Parents:** [`changes.track`, `lifecycle.project`, `requirements`, `review`, `testcov`, `trace`]
+
+It must be possible state the origin of gathered information that was converted to a format that *mantra* understands.
+For example, requirements are commonly managed with third-party tools and must be extracted and converted to a format
+that is understandable by *mantra*. To map the converted data back to its origin, it must be possible to store this information
+in the format that *mantra* understands.
+
+#### `changes.track.origin.vcs`: Link changes to VCS
+
+It must be possible to link changes in *mantra* to a particular VCS identifier (e.g. git commit),
 because the hash of a content cannot show the change history and only detect that a content has changed.
 
 Projects may use different VCS or none at all, so *mantra* must not depend on a particular VCS.
+
+### `changes.track.metadata`: Allow to add metadata for collected information
+
+- **Parents:** [`changes.track`, `lifecycle.project`, `requirements`, `review`, `testcov`, `trace`]
+
+It should be possible to add metadata to information that is being collected by *mantra*.
+Similar to `changes.track.origin`, additional information about possible conversions of the information may be provided,
+which is outside the scope of *mantra*.
 
 ### `changes.track.reqs`: Track changes to requirements
 

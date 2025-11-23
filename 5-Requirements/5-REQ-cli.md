@@ -18,7 +18,12 @@ should be used for configuration.
 It should be possible to specify metadata such as the project name, version, and link in `mantra.toml`,
 because this information does not frequently change, but is needed by some CLI commands such as `report`.
 
-## `cli.collect.dry_run`: Collect data without saving
+### `cli.collect.config`: Store configuration settings
+
+The settings in `mantra.toml` should be stored in the database when collecting information,
+because it shows how specific entries were added to *mantra*.
+
+### `cli.collect.dry_run`: Collect data without saving
 
 As a developer, I want to see the impact of introduced changes to the traceability data,
 before merging these changes, because this helps to identify if all needed changes were done,
