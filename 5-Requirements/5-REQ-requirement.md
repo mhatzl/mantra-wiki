@@ -73,6 +73,13 @@ Parents: [`req.hierarchy.mult_parents`, [`req.properties.wiki`](<link to require
 
 A requirement hierarchy must not contain cycles, because this would break transitive relations.
 
+### `req.hierarchy.states`: Hierarchical state propagation
+
+- **Parents:** [`req.hierarchy`, `req.state`]
+
+The requirement hierarchy must affect the state of a requirement,
+because fulfilling a requirement depends on the state of its children.
+
 ## `req.origin`: Save the origin of a requirement
 
 As a product owner or developer, I want to know where a requirement is defined,
@@ -253,11 +260,40 @@ because some versions may require a verification, but others might not.
 
 TODO: explain in more detail
 
+## `req.optional`: Optional requirements
+
+It must be possible to set requirements as optional, because they might not be critical for a product,
+but satisfying them might for example increase the quality of a product.
+
+### `req.optional.wiki`: Mark requirements as optional
+
+- **Parents:** [`req.optional`, `req.properties.wiki`]
+
+It must be possible to mark requirements as optional in the Markdown wiki format.
+
+**Implementation Details:**
+
+The case insensitive key `Optional` may be used to mark requirements as optional
+using case insensitive `true` or `false` as values.
+
+```
+# `req_id`: Some Requirement
+
+- **Optional**: true
+```
+
+### `req.optional.propagation`: Optional propagates to children
+
+- **Parents:** [`req.optional`, `req.hierarchy`]
+
+If a requirement is marked as optional, all its children must also be set to optional.
+This ensures that only optional requirements depend on each other.
+
 ## `req.deprecate`: Deprecate requirements
 
 It must be possible to deprecate requirements, because they might be outdated or superseded by newer requirements at some point.
 
-#### `req.deprecate.wiki`: Mark requirements as deprecated
+### `req.deprecate.wiki`: Mark requirements as deprecated
 
 - **Parents:** [`req.deprecate`, `req.properties.wiki`]
 
@@ -274,9 +310,85 @@ using case insensitive `true` or `false` as values.
 - **Deprecated**: true
 ```
 
-##### `req.deprecate.versioned`: Deprecate requirements only in specific project versions
+### `req.deprecate.propagation`: Deprecation propagates to children
 
-Deprecation must be possible per project version, because newer versions may deprecate a requirement,
-but the requirement may still be valid in older versions.
+- **Parents:** [`req.deprecate`, `req.hierarchy`]
 
-TODO: explain in more detail
+If a requirement is marked as deprecated, all its children must also be set to deprecated.
+This ensures that only deprecated requirements depend on each other.
+
+## `req.exclude`: Exclude requirements
+
+It must be possible to exclude requirements from a product, because they might not be relevant for a product but are listed for completeness.
+
+### `req.exclude.wiki`: Mark requirements as excluded
+
+- **Parents:** [`req.exclude`, `req.properties.wiki`]
+
+It must be possible to mark requirements as excluded in the Markdown wiki format.
+
+**Implementation Details:**
+
+The case insensitive key `Exclude` may be used to mark requirements as excluded
+using case insensitive `true` or `false` as values.
+
+```
+# `req_id`: Some Requirement
+
+- **Exclude**: true
+```
+
+### `req.exclude.propagation`: Exclude propagates to children
+
+- **Parents:** [`req.exclude`, `req.hierarchy`]
+
+If a requirement is marked as excluded, all its children must also be excluded.
+This ensures that only excluded requirements depend on each other.
+
+## `req.state`: Requirement states
+
+- **Parents:** [`req`, `req.hierarchy`, `review.verify_req`, `testcov`, `trace`]
+
+Every requirement has a state that must be based on the collected information.
+The state of all requirements may then be used to estimate the developmnt state.
+
+### `req.state.verified`: Verified requirements
+
+For a requirement to be considered verified, it must fulfill:
+- The requirement is not in excluded, deprecated, failed, or skipped state
+- Manual requirements are verified by at least one review
+- All non-optional, non-excluded, non-deprecated children are verified
+- It has only optional requirements and at least one is verified
+- For non-manual requirements, a passing test covers the requirement either by:
+  - Requirement directly mapped to the test
+  - Verifying trace covered by test and no satisfying trace exists
+  - All satisfying traces are covered by tests and there is no verifying trace
+  - Every test covering a verifying trace at least covers one satisfying trace
+
+### `req.state.failed`: Failed requirements
+
+For a requirement to be considered failed:
+- The requirement is not in excluded or deprecated state
+- At least one test covering the requirement or one of its non-excluded, non-deprecated children failed
+
+### `req.state.skipped`: Skipped requirements
+
+For a requirement to be considered skipped:
+- The requirement is not in excluded, deprecated, or failed state
+- At least one test covering the requirement or one of its non-optional, non-excluded, non-deprecated children was skipped
+
+### `req.state.unverified`: Unverified requirements
+
+For a requirement to be considered unverified, it must fulfill:
+- The requirement is not in excluded, deprecated, failed, or skipped state
+- The conditions for verification were not fulfilled
+
+### `req.state.excluded`: Excluded requirements
+
+For a requirement to be considered excluded, it must fulfill:
+- The requirement or one of its parents was marked as excluded
+
+### `req.state.deprecated`: Deprecated requirements
+
+For a requirement to be considered excluded, it must fulfill:
+- The requirement or one of its parents was marked as deprecated

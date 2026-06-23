@@ -8,6 +8,7 @@ This section contains requirements for the system.
 - [req(changes)](5-REQ-changes) ... Contains requirements about tracking changes to collected data in *mantra*
 - [req(cli)](5-REQ-cli) ... Contains requirements about *mantra*'s CLI
 - [req(exchange)](5-REQ-exchange) ... Contains requirements about exchanging information with external tools
+- [req(extract)](5-REQ-extract) ... Contains requirements about extracting *mantra* information from files
 - [req(lang)](5-REQ-lang) ... Contains requirements about conventions for directly supported programming languages
 - [req(qa)](5-REQ-qa) ... Contains requirements about general quality assurance
 - [req(report)](5-REQ-report) ... Contains requirements for reports from collected data
