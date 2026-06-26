@@ -1,32 +1,20 @@
 ## Overall Architecture
 
 ```mermaid
-flowchart LR
-    
-    Repo@{ shape: docs, label: "Repository Text/Code Files"}
-
-    Annotation["Optional: Trace Annotations
-    e.g. [req(my_req_id)]"]
-    RustAnnotations["Crate: mantra-rust-macros
-    For Rust Code"]
-    
-    MantraCfg@{ shape: doc, label: "mantra.toml
-    Configuration for mantra"}
-    
-    ReqFile@{ shape: docs, label: "Optional: Requirement File
-    [Markdown]"}
+flowchart LR  
+    MantraCfg@{ shape: doc, label: "mantra.json5"}
 
     ReqJson@{ shape: docs, label: "Optional: Requirements
     [JSON RequirementSchema]"}
 
-    TraceJson@{ shape: docs, label: "Optional: Traces
-    [JSON TraceSchema]"}
+    AnnotationJson@{ shape: docs, label: "Optional: Annotations
+    [JSON AnnotationSchema]"}
 
-    TestCoverage@{ shape: docs, label: "Optional: Test Coverage
-    [JSON CoverageSchema]"}
+    TestRunJson@{ shape: docs, label: "Optional: Test Runs
+    [JSON TestRunSchema]"}
 
-    Review@{ shape: docs, label: "Optional: Review
-    [TOML ReviewSchema]"}
+    ReviewJson@{ shape: docs, label: "Optional: ReviewJson
+    [JSON ReviewSchema]"}
 
     Mantra["mantra
     CLI Tool"]
@@ -34,63 +22,18 @@ flowchart LR
     db[("mantra.db
     SQLite")]
 
-    Report@{ shape: doc, label: "report.html"}
-    ReportJson@{ shape: doc, label: "report.json"}
-
-    MantraSchema["Crate: mantra-schema
-    Defines all Mantra Schemas"]
-
-    LangTracing["Crate: mantra-lang-tracing
-    Generic Syntax Tracing"]
-    RustTracing["Crate: mantra-rust-trace
-    Rust Code Tracing"]
-
-    subgraph ct[Code Tracing]
-        direction TB
-
-        TreeSitter["tree-sitter
-        Creates Generic AST"]
-        GenericTracing["For all Text Files
-        (mantra internal)"]
-
-        TreeSitter-.->|"Generic Parsing"|LangTracing
-        TreeSitter-->|"Rust Code Parsing"|RustTracing
-
-        LangTracing-->|"Adapt for Rust Code
-        More Languages to come"|RustTracing
-
-        LangTracing-->|Generic Tracing|GenericTracing
-    end
-
-    subgraph Your Code Files
-        direction LR
-
-        RustAnnotations-->|Rust proc-macros|Annotation
-        Repo-->|Manually annotate code|Annotation
-    end
-
-    Annotation-->|mantra collect|ct
-    ct-->|"mantra collect (internnally)"|Mantra
-
-    MantraSchema-.->ReqJson
-    MantraSchema-.->TraceJson
-    MantraSchema-.->TestCoverage
-    MantraSchema-.->Review
-
-    MantraCfg-->|"`**mantra collect** & **report**`"|Mantra
-    ReqFile-->|mantra collect|Mantra
+    MantraCfg-->|"Configuration"|Mantra
     ReqJson-->|mantra collect|Mantra
-    TraceJson-->|mantra collect|Mantra
-    TestCoverage-->|mantra collect|Mantra
-    Review-->|mantra collect|Mantra
+    AnnotationJson-->|mantra collect|Mantra
+    TestRunJson-->|mantra collect|Mantra
+    ReviewJson-->|mantra collect|Mantra
 
-    Mantra<-->|"Traceability Information
-    Uses SQLX"|db
+    Mantra<-->|"Collected Data"|db
 
-    Mantra-->|"mantra report
-    (Custom) Tera Template"|Report
-    Mantra-->|"mantra report
-    Fix JSON Schema"|ReportJson
+    Report@{ shape: docs, label: "Reports
+    [HTML, JSON]"}
+
+    Mantra-->|"mantra report"|Report
 ```
 
 ### Main *mantra* Commands
@@ -126,4 +69,4 @@ The associated span information that is collected with the tree-sitter approach
 enables *mantra* to combine code coverage data from tests with the collected traces
 to calculate the requirement coverage.
 
-Currently, the AST approach is only implemented for Rust code. 
+Currently, the AST approach is only implemented for Rust code.
